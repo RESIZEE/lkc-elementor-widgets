@@ -24,4 +24,4 @@ jobs:
           host: ${{ secrets.KAS_HOST }}
           username: ${{ secrets.KAS_USERNAME }}
           password: ${{ secrets.KAS_PASSWORD }}
-          script: 'cd /www/htdocs/w0138111/lkc.resize.rs/wp-content/themes/lkc-theme && ./deploy.sh'
+          script: 'cd /www/htdocs/w0138111/lkc.resize.rs/wp-content/plugins/lkc-elementor-widgets && ./deploy.sh'
