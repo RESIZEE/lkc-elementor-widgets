@@ -11,6 +11,7 @@
 
 .cinema-movies-showcase-wrapper {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 50px;
 }
