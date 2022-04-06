@@ -59,57 +59,8 @@
 /**
     Commercials Widget Styles
  */
-.commercials-widget {
-    overflow: hidden;
-    border-radius: 0 20px;
-}
-
-.commercials-widget__container {
-    position: relative;
-    width: 400%;
-    margin: 0;
-    left: 0;
-    -webkit-animation: 20s slider infinite;
-    -o-animation: 20s slider infinite;
-    animation: 20s slider infinite;
-}
-
-.commercials-widget__img-container {
-    float: left;
-    width: 25%;
+.commercials-widget .commercials-widget__img-container {
     object-fit: cover;
-}
-
-@keyframes slider {
-    0% {
-        left: 0;
-    }
-
-    25% {
-        left: 0;
-    }
-
-    30% {
-        left: -100%;
-    }
-
-    55% {
-        left: -100%;
-    }
-    
-    60% {
-        left: -200%;
-    }
-
-    85% {
-        left: -200%;
-    }
-
-    90% {
-        left: -300%
-    }
-
-    100% {
-        left: -300%;
-    }
+    width: 100%;
+    border-radius: 0 15px;
 }

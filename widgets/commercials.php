@@ -103,6 +103,19 @@ class Commercials_Widget extends Widget_Base
         );
 
         $repeater->add_control(
+            'commercial_link', [
+                'label'       => esc_html__( 'Link', 'lkc-elementor-widgets' ),
+                'type'        => \Elementor\Controls_Manager::URL,
+                'placeholder' => esc_html__( 'https://your-link.com', 'lkc-elementor-widgets' ),
+                'default'     => [
+                    'url'               => '',
+                    'custom_attributes' => '',
+                ],
+                'show_label'  => true,
+            ]
+        );
+
+        $repeater->add_control(
             'commercial_image', [
                 'label' => esc_html('Choose Commercial'),
                 'type' => \Elementor\Controls_Manager::MEDIA,
@@ -182,18 +195,19 @@ class Commercials_Widget extends Widget_Base
      */
     protected function render()
     {
-
         $settings = $this->get_settings_for_display();
-        echo '<div class="commercials-widget">';
-        echo '<figure class="commercials-widget__container">';
+        echo '<div class="commercials-widget carousel slide" data-bs-ride="carousel">';
+        echo '<div class="carousel-inner">';
 
-        foreach ($settings['commercials'] as $item) {
+        foreach ($settings['commercials'] as $index=>$item) {
             $this->commercials_html(
-                $item['commercial_image']['url']
+                $item['commercial_link']['url'],
+                $item['commercial_image']['url'],
+                $index
             );
         }
 
-        echo '</figure>';
+        echo '</div>';
         echo '</div>';
     }
 
@@ -201,13 +215,20 @@ class Commercials_Widget extends Widget_Base
     /**
      * Echos HTML needed to create single card.
      *
+     * @param $commercial_link
      * @param $commercial_image
      *
      * @return void
      */
-    private function commercials_html($commercial_image)
+    private function commercials_html($commercial_link, $commercial_image, $index)
     {
-        echo '<img class="commercials-widget__img-container" src="' . $commercial_image . '">';
+        if($index === 0) {
+            echo '<div class="carousel-item active">';
+        } else {
+            echo '<div class="carousel-item">';
+        }
+        echo '<a href="'. $commercial_link . '"><img class="commercials-widget__img-container" src="' . $commercial_image . '"></a>';
+        echo '</div>';
     }
 }
 
