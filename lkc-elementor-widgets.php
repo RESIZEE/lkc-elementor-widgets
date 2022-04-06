@@ -9,6 +9,7 @@ Author URI: https://resize.rs/
 */
 
 use Elementor\Cinema_Movies_Showcase_Widget;
+use Elementor\Commercials_Widget;
 use Elementor\Widgets_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -199,6 +200,7 @@ class Lkc_Elementor_Widgets {
 	 */
 	public function require_widget_files() {
 		require_once( 'widgets/cinema-movies-showcase-widget.php' );
+        require_once( 'widgets/commercials.php' );
 	}
 
 	/**
@@ -210,6 +212,7 @@ class Lkc_Elementor_Widgets {
 	 */
 	public function register_widgets( Widgets_Manager $widget_manager ) {
 		$widget_manager->register( new Cinema_Movies_Showcase_Widget() );
+        $widget_manager->register( new Commercials_Widget() );
 	}
 
 	/**
@@ -240,7 +243,6 @@ class Lkc_Elementor_Widgets {
 	}
 
 }
-
 
 add_action( 'init', 'lkc_elementor_init' );
 function lkc_elementor_init() {
