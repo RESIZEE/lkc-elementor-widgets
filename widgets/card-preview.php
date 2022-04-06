@@ -535,11 +535,11 @@ class Card_Preview_Widgets extends Widget_Base {
 
 		echo ' <div class="card-preview-card-wrapper">';
 
-		echo "<a href=\"$video_url\" style=\"background: url('$background_img_url')\" class=\"card-preview-card\">";
+		echo "<a href=\"$video_url\" target=\"_blank\" style=\"background: url('$background_img_url')\" class=\"card-preview-card\">";
 		echo "<img src=\"$play_button_img_url\" class=\"card-preview-card__play_img_overlay\" alt=\"Play button\"/>";
 		echo '</a>';
 
-		echo "<a href=\"$video_url\">";
+		echo "<a href=\"$video_url\" target=\"_blank\">";
 		echo "<p class=\"card-preview-card__title\">$card_title</p>";
 		echo '</a>';
 
@@ -552,7 +552,7 @@ class Card_Preview_Widgets extends Widget_Base {
 	 * @return void
 	 */
 	private function image_card_html( $image_card_link, $background_img_url, $card_title ) {
-		echo "<a href=\"$image_card_link\" style=\"background: url('$background_img_url')\" class=\"card-preview-card\">";
+		echo "<a href=\"$image_card_link\" target=\"_blank\" style=\"background: url('$background_img_url')\" class=\"card-preview-card\">";
 		echo "<p class=\"card-preview-card__title\">$card_title</p>";
 		echo '</a>';
 	}
