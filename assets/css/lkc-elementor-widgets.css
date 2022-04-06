@@ -1,7 +1,6 @@
 /**
     Cinema Movies Showcase Widget Styles
  */
-
 .cinema-movies-showcase-container {
     width: 100%;
     height: 100%;
@@ -64,3 +63,7 @@
     width: 100%;
     border-radius: 0 15px;
 }
+
+/**
+    Card Preview Widget Styles
+ */

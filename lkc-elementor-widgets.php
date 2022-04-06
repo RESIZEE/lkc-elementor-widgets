@@ -8,6 +8,7 @@ Author: Resize Team
 Author URI: https://resize.rs/
 */
 
+use Elementor\Card_Preview_Widgets;
 use Elementor\Cinema_Movies_Showcase_Widget;
 use Elementor\Commercials_Widget;
 use Elementor\Widgets_Manager;
@@ -174,7 +175,6 @@ class Lkc_Elementor_Widgets {
 		);
 
 		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
-
 	}
 
 	/**
@@ -201,6 +201,7 @@ class Lkc_Elementor_Widgets {
 	public function require_widget_files() {
 		require_once( 'widgets/cinema-movies-showcase-widget.php' );
         require_once( 'widgets/commercials.php' );
+        require_once( 'widgets/card-preview.php' );
 	}
 
 	/**
@@ -213,6 +214,7 @@ class Lkc_Elementor_Widgets {
 	public function register_widgets( Widgets_Manager $widget_manager ) {
 		$widget_manager->register( new Cinema_Movies_Showcase_Widget() );
         $widget_manager->register( new Commercials_Widget() );
+        $widget_manager->register( new Card_Preview_Widgets() );
 	}
 
 	/**
