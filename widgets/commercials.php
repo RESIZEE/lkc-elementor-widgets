@@ -109,8 +109,8 @@ class Commercials_Widget extends Widget_Base
                 'placeholder' => esc_html__('https://your-link.com', 'lkc-elementor-widgets'),
                 'default' => [
                     'url' => '',
-                    'custom_attributes' => '',
                     'is_external' => true,
+                    'custom_attributes' => '',
                 ],
                 'show_label' => true,
             ]
@@ -228,7 +228,7 @@ class Commercials_Widget extends Widget_Base
         }else {
             echo '<div class="carousel-item">';
         }
-        echo '<a href="' . $commercial_link . '"><img class="commercials-widget__img-container" src="' . $commercial_image . '"></a>';
+        echo '<a href="' . $commercial_link . '" target="_blank"><img class="commercials-widget__img-container" src="' . $commercial_image . '"></a>';
         echo '</div>';
     }
 }
