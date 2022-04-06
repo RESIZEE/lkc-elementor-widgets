@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Elementor Card Preview Widget
  *
- * Elementor widget that inserts flexible number of cards which can display products or categories from WooCommerce
+ * Elementor widget that inserts flexible number of cards which can display simple linked images or linked videos
  *
  */
 class Card_Preview_Widgets extends Widget_Base {
@@ -88,117 +88,187 @@ class Card_Preview_Widgets extends Widget_Base {
 	 * @access protected
 	 */
 	protected function register_controls() {
-
+		/**
+		 * Default display settings for all cards section
+		 */
 		$this->start_controls_section(
-			'content_section',
+			'card_display',
 			array(
-				'label' => esc_html__( 'Content', 'lkc-elementor-widgets' ),
+				'label' => esc_html__( 'Card Display', 'lkc-elementor-widgets' ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			)
 		);
-
-		$this->add_responsive_control(
-			'card_height',
-			[
-				'label'      => esc_html__( 'Card Image Height', 'lkc-elementor-widgets' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'vh' ],
-				'range'      => [
-					'px' => [
-						'min'  => 0,
-						'max'  => 1000,
-						'step' => 5,
-					],
-					'%'  => [
-						'min' => 0,
-						'max' => 100,
-					],
-					'vh' => [
-						'min' => 0,
-						'max' => 100,
-					],
-				],
-				'default'    => [
-					'unit' => 'px',
-					'size' => '240',
-				],
-				'selectors'  => [
-					'{{WRAPPER}} .product-category-widget-card__image' => 'height: {{SIZE}}{{UNIT}};',
-				],
-			],
-		);
-
-		$this->add_control(
-			'number_of_cards',
-			array(
-				'label'       => esc_html__( 'Number of cards', 'lkc-elementor-widgets' ),
-				'type'        => Controls_Manager::NUMBER,
-				'placeholder' => esc_html__( '#', 'lkc-elementor-widgets' ),
-				'default'     => '3',
-			)
-		);
-
 		$this->add_control(
 			'card_type',
 			[
 				'label'   => esc_html__( 'Card type', 'lkc-elementor-widgets' ),
 				'type'    => Controls_Manager::SELECT,
-				'default' => 'products',
+				'default' => 'image',
 				'options' => array(
-					'products'   => esc_html__( 'Products', 'lkc-elementor-widgets' ),
-					'categories' => esc_html__( 'Categories', 'lkc-elementor-widgets' ),
+					'image' => esc_html__( 'Image', 'lkc-elementor-widgets' ),
+					'video' => esc_html__( 'Video', 'lkc-elementor-widgets' ),
 				),
 			]
 		);
-
-		$this->add_control(
-			'product_category',
-			array(
-				'label'     => esc_html__( 'Choose product category', 'lkc-elementor-widgets' ),
-				'type'      => Controls_Manager::SELECT,
-				'default'   => array_key_first( $this->get_woocommerce_categories_for_select_element() ),
-				'options'   => $this->get_woocommerce_categories_for_select_element(),
-				'condition' => array(
-					'card_type' => 'products',
+		// When image selected
+		$this->add_responsive_control(
+			'image_card_height',
+			[
+				'label'      => esc_html__( 'Card Image Height', 'lkc-elementor-widgets' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', '%', 'vh' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 1000,
+						'step' => 5,
+					),
+					'%'  => array(
+						'min' => 0,
+						'max' => 100,
+					),
+					'vh' => array(
+						'min' => 0,
+						'max' => 100,
+					),
 				),
-			)
+				'default'    => array(
+					'unit' => 'px',
+					'size' => '240',
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .card-preview-card' => 'max-height: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+				),
+				'condition'  => array(
+					'card_type' => 'image',
+				),
+			],
 		);
-
+		$this->add_responsive_control(
+			'image_card_width',
+			[
+				'label'      => esc_html__( 'Card Image Width', 'lkc-elementor-widgets' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', '%', 'vh' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 1000,
+						'step' => 5,
+					),
+					'%'  => array(
+						'min' => 0,
+						'max' => 100,
+					),
+					'vh' => array(
+						'min' => 0,
+						'max' => 100,
+					),
+				),
+				'default'    => array(
+					'unit' => 'px',
+					'size' => '240',
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .card-preview-card' => 'max-width: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+				),
+				'condition'  => array(
+					'card_type' => 'image',
+				),
+			],
+		);
+		// When video selected
+		$this->add_responsive_control(
+			'video_card_height',
+			[
+				'label'      => esc_html__( 'Card Video Height', 'lkc-elementor-widgets' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', '%', 'vh' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 1000,
+						'step' => 5,
+					),
+					'%'  => array(
+						'min' => 0,
+						'max' => 100,
+					),
+					'vh' => array(
+						'min' => 0,
+						'max' => 100,
+					),
+				),
+				'default'    => array(
+					'unit' => 'px',
+					'size' => '240',
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .card-preview-card-wrapper' => 'max-height: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .card-preview-card'         => 'height: 100%;',
+				),
+				'condition'  => array(
+					'card_type' => 'video',
+				),
+			],
+		);
+		$this->add_responsive_control(
+			'video_card_width',
+			[
+				'label'      => esc_html__( 'Card Video Width', 'lkc-elementor-widgets' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', '%', 'vh' ),
+				'range'      => array(
+					'px' => array(
+						'min'  => 0,
+						'max'  => 1000,
+						'step' => 5,
+					),
+					'%'  => array(
+						'min' => 0,
+						'max' => 100,
+					),
+					'vh' => array(
+						'min' => 0,
+						'max' => 100,
+					),
+				),
+				'default'    => array(
+					'unit' => 'px',
+					'size' => '240',
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .card-preview-card-wrapper' => 'max-width: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .card-preview-card'         => 'width: 100%;',
+				),
+				'condition'  => array(
+					'card_type' => 'video',
+				),
+			],
+		);
 		$this->end_controls_section();
 
+		/**
+		 * Content for card #1 section
+		 */
 		$this->start_controls_section(
-			'show_all_section',
+			'content_card_1',
 			array(
-				'label' => esc_html__( 'Show all card', 'lkc-elementor-widgets' ),
+				'label' => esc_html__( 'Content Card #1', 'lkc-elementor-widgets' ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			)
 		);
-
 		$this->add_control(
-			'show_all_card',
+			'card_title_1',
 			array(
-				'label'   => esc_html__( 'Add show all card', 'lkc-elementor-widgets' ),
-				'type'    => Controls_Manager::SWITCHER,
-				'default' => 'yes',
-			)
-		);
-
-		$this->add_control(
-			'show_all_title',
-			array(
-				'label'       => esc_html__( 'Title', 'lkc-elementor-widgets' ),
+				'label'       => esc_html__( 'Card Title', 'lkc-elementor-widgets' ),
 				'type'        => Controls_Manager::TEXT,
-				'input_type'  => 'text',
-				'placeholder' => esc_html__( 'Title for show all card', 'lkc-elementor-widgets' ),
-				'default'     => 'Show all',
-				'condition'   => array(
-					'show_all_card' => 'yes',
-				),
+				'placeholder' => esc_html__( 'Type card title here', 'lkc-elementor-widgets' ),
 			)
 		);
-
+		// When image selected
 		$this->add_control(
-			'show_all_img',
+			'background_image_url_1',
 			array(
 				'label'     => esc_html__( 'Choose image', 'lkc-elementor-widgets' ),
 				'type'      => Controls_Manager::MEDIA,
@@ -206,13 +276,189 @@ class Card_Preview_Widgets extends Widget_Base {
 					'url' => plugins_url( '/assets/img/placeholder.png', LKC_PLUGIN_FILE ),
 				),
 				'condition' => array(
-					'show_all_card' => 'yes',
+					'card_type' => 'image',
 				),
 			)
 		);
-
+		$this->add_control(
+			'image_card_link_1',
+			array(
+				'label'       => esc_html__( 'Image Link', 'lkc-elementor-widgets' ),
+				'type'        => Controls_Manager::URL,
+				'placeholder' => esc_html__( 'https://your-link.com', 'lkc-elementor-widgets' ),
+				'default'     => [
+					'url'               => '#',
+					'is_external'       => true,
+					'nofollow'          => true,
+					'custom_attributes' => '',
+				],
+				'condition'   => array(
+					'card_type' => 'image',
+				),
+			)
+		);
+		// When video selected
+		$this->add_control(
+			'video_url_1',
+			array(
+				'label'       => esc_html__( 'Video URL', 'lkc-elementor-widgets' ),
+				'type'        => Controls_Manager::URL,
+				'placeholder' => esc_html__( 'https://your-link.com', 'lkc-elementor-widgets' ),
+				'default'     => [
+					'url'               => '#',
+					'is_external'       => true,
+					'nofollow'          => true,
+					'custom_attributes' => '',
+				],
+				'condition'   => array(
+					'card_type' => 'video',
+				),
+			)
+		);
 		$this->end_controls_section();
 
+		/**
+		 * Content for card #2 section
+		 */
+		$this->start_controls_section(
+			'content_card_2',
+			array(
+				'label' => esc_html__( 'Content Card #2', 'lkc-elementor-widgets' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			)
+		);
+		$this->add_control(
+			'card_title_2',
+			array(
+				'label'       => esc_html__( 'Card Title', 'lkc-elementor-widgets' ),
+				'type'        => Controls_Manager::TEXT,
+				'placeholder' => esc_html__( 'Type card title here', 'lkc-elementor-widgets' ),
+			)
+		);
+		// When image selected
+		$this->add_control(
+			'background_image_url_2',
+			array(
+				'label'     => esc_html__( 'Choose image', 'lkc-elementor-widgets' ),
+				'type'      => Controls_Manager::MEDIA,
+				'default'   => array(
+					'url' => plugins_url( '/assets/img/placeholder.png', LKC_PLUGIN_FILE ),
+				),
+				'condition' => array(
+					'card_type' => 'image',
+				),
+			)
+		);
+		$this->add_control(
+			'image_card_link_2',
+			array(
+				'label'       => esc_html__( 'Image Link', 'lkc-elementor-widgets' ),
+				'type'        => Controls_Manager::URL,
+				'placeholder' => esc_html__( 'https://your-link.com', 'lkc-elementor-widgets' ),
+				'default'     => [
+					'url'               => '#',
+					'is_external'       => true,
+					'nofollow'          => true,
+					'custom_attributes' => '',
+				],
+				'condition'   => array(
+					'card_type' => 'image',
+				),
+			)
+		);
+		// When video selected
+		$this->add_control(
+			'video_url_2',
+			array(
+				'label'       => esc_html__( 'Video URL', 'lkc-elementor-widgets' ),
+				'type'        => Controls_Manager::URL,
+				'placeholder' => esc_html__( 'https://your-link.com', 'lkc-elementor-widgets' ),
+				'default'     => [
+					'url'               => '#',
+					'is_external'       => true,
+					'nofollow'          => true,
+					'custom_attributes' => '',
+				],
+				'condition'   => array(
+					'card_type' => 'video',
+				),
+			)
+		);
+		$this->end_controls_section();
+
+		/**
+		 * Content for card #3 section
+		 */
+		$this->start_controls_section(
+			'content_card_3',
+			array(
+				'label' => esc_html__( 'Content Card #3', 'lkc-elementor-widgets' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			)
+		);
+		$this->add_control(
+			'card_title_3',
+			array(
+				'label'       => esc_html__( 'Card Title', 'lkc-elementor-widgets' ),
+				'type'        => Controls_Manager::TEXT,
+				'placeholder' => esc_html__( 'Type card title here', 'lkc-elementor-widgets' ),
+			)
+		);
+		// When image selected
+		$this->add_control(
+			'background_image_url_3',
+			array(
+				'label'     => esc_html__( 'Choose image', 'lkc-elementor-widgets' ),
+				'type'      => Controls_Manager::MEDIA,
+				'default'   => array(
+					'url' => plugins_url( '/assets/img/placeholder.png', LKC_PLUGIN_FILE ),
+				),
+				'condition' => array(
+					'card_type' => 'image',
+				),
+			)
+		);
+		$this->add_control(
+			'image_card_link_3',
+			array(
+				'label'       => esc_html__( 'Image Link', 'lkc-elementor-widgets' ),
+				'type'        => Controls_Manager::URL,
+				'placeholder' => esc_html__( 'https://your-link.com', 'lkc-elementor-widgets' ),
+				'default'     => [
+					'url'               => '#',
+					'is_external'       => true,
+					'nofollow'          => true,
+					'custom_attributes' => '',
+				],
+				'condition'   => array(
+					'card_type' => 'image',
+				),
+			)
+		);
+		// When video selected
+		$this->add_control(
+			'video_url_3',
+			array(
+				'label'       => esc_html__( 'Video URL', 'lkc-elementor-widgets' ),
+				'type'        => Controls_Manager::URL,
+				'placeholder' => esc_html__( 'https://your-link.com', 'lkc-elementor-widgets' ),
+				'default'     => [
+					'url'               => '#',
+					'is_external'       => true,
+					'nofollow'          => true,
+					'custom_attributes' => '',
+				],
+				'condition'   => array(
+					'card_type' => 'video',
+				),
+			)
+		);
+		$this->end_controls_section();
+
+
+		/**
+		 * Style section
+		 */
 		$this->start_controls_section(
 			'style_section',
 			array(
@@ -220,15 +466,13 @@ class Card_Preview_Widgets extends Widget_Base {
 				'tab'   => Controls_Manager::TAB_STYLE,
 			)
 		);
-
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
 				'name'     => 'card_content_typography',
-				'selector' => '{{WRAPPER}} .product-category-widget-card__title',
+				'selector' => '{{WRAPPER}} p.card-preview-card__title',
 			]
 		);
-
 		$this->add_control(
 			'card_title_color',
 			array(
@@ -236,24 +480,21 @@ class Card_Preview_Widgets extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#000',
 				'selectors' => [
-					'{{WRAPPER}} .product-category-widget-card__title' => 'color: {{VALUE}}',
+					'{{WRAPPER}} p.card-preview-card__title' => 'color: {{VALUE}}',
 				],
 			)
 		);
-
 		$this->add_control(
 			'card_title_hover_color',
 			array(
 				'label'     => esc_html__( 'Color on hover', 'lkc-elementor-widgets' ),
 				'type'      => Controls_Manager::COLOR,
-				'default'   => '#000',
+				'default'   => '#fff',
 				'selectors' => [
-					'{{WRAPPER}} .product-category-widget-card:hover p' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .card-preview-card:hover .card-preview-card__title, .card-preview-card__title:hover' => 'color: {{VALUE}} !important',
 				],
 			)
 		);
-
-
 		$this->end_controls_section();
 	}
 
@@ -266,61 +507,53 @@ class Card_Preview_Widgets extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		$settings         = $this->get_settings_for_display();
-		$display_products = $settings['card_type'] === 'products';
+		$settings = $this->get_settings_for_display();
 
-		if ( $display_products ) {
-			$posts = $this->get_woocommerce_products( $settings['product_category'], $settings['number_of_cards'] );
-		} else {
-			$posts = $this->get_woocommerce_categories( $settings['number_of_cards'] );
-		}
+		$is_image_card = $settings['card_type'] === 'image';
 
-		echo '<div class="row">';
-		foreach ( $posts as $post ) {
-			$this->card_html( $post['name'], $post['permalink'], $post['image_url'] );
-		}
-		if ( $settings['show_all_card'] === 'yes' ) {
-			$show_all_permalink = $display_products ?
-				get_term_link( $settings['product_category'], 'product_cat' ) :
-				get_permalink( wc_get_page_id( 'shop' ) );
+		echo '<div class="card-preview-container">';
+		echo ' <div class="card-preview-wrapper">';
 
-			$this->card_html(
-				$settings['show_all_title'],
-				$show_all_permalink,
-				$settings['show_all_img']['url']
-			);
+		for ( $i = 1; $i <= 3; $i ++ ) {
+			if ( $is_image_card ) {
+				$this->image_card_html( $settings["image_card_link_$i"]['url'], $settings["background_image_url_$i"]['url'], $settings["card_title_$i"] );
+			} else {
+				$this->video_card_html( $settings["video_url_$i"]['url'], plugins_url( '/assets/img/placeholder.png', LKC_PLUGIN_FILE ), $settings["card_title_$i"] );
+			}
 		}
 		echo '</div>';
-
+		echo '</div>';
 	}
 
 	/**
-	 * Echos HTML needed to create single card.
-	 *
-	 * @param $name
-	 * @param $permalink
-	 * @param $image_url
+	 * Echos HTML needed to create single video preview card.
 	 *
 	 * @return void
 	 */
-	private function card_html( $name, $permalink, $image_url ) {
-		echo '<div class="product-category-widget-card col-6 col-md-3">';
+	private function video_card_html( $video_url, $background_img_url, $card_title ) {
+		$play_button_img_url = plugins_url( '/assets/img/play-button.png', LKC_PLUGIN_FILE );
 
-		echo '<a href="' . $permalink . '">';
-		echo '<div class="product-category-widget-card__image-wrapper">';
-		echo '<img src="' . $image_url . '" alt="' . $name . '" class="product-category-widget-card__image">';
-		echo '</div>';
-		echo '<p class="product-category-widget-card__title">' . $name . '</p>';
+		echo ' <div class="card-preview-card-wrapper">';
+
+		echo "<a href=\"$video_url\" style=\"background: url('$background_img_url')\" class=\"card-preview-card\">";
+		echo "<img src=\"$play_button_img_url\" class=\"card-preview-card__play_img_overlay\" alt=\"Play button\"/>";
+		echo '</a>';
+
+		echo "<a href=\"$video_url\">";
+		echo "<p class=\"card-preview-card__title\">$card_title</p>";
 		echo '</a>';
 
 		echo '</div>';
 	}
 
 	/**
-	 * Generates key value pairs which will be used in select HTML element as options property.
+	 * Echos HTML needed to create single video preview card.
 	 *
 	 * @return void
 	 */
-	private function test() {
+	private function image_card_html( $image_card_link, $background_img_url, $card_title ) {
+		echo "<a href=\"$image_card_link\" style=\"background: url('$background_img_url')\" class=\"card-preview-card\">";
+		echo "<p class=\"card-preview-card__title\">$card_title</p>";
+		echo '</a>';
 	}
 }
