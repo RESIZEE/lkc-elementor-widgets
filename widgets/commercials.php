@@ -104,14 +104,15 @@ class Commercials_Widget extends Widget_Base
 
         $repeater->add_control(
             'commercial_link', [
-                'label'       => esc_html__( 'Link', 'lkc-elementor-widgets' ),
-                'type'        => \Elementor\Controls_Manager::URL,
-                'placeholder' => esc_html__( 'https://your-link.com', 'lkc-elementor-widgets' ),
-                'default'     => [
-                    'url'               => '',
+                'label' => esc_html__('Link', 'lkc-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::URL,
+                'placeholder' => esc_html__('https://your-link.com', 'lkc-elementor-widgets'),
+                'default' => [
+                    'url' => '',
                     'custom_attributes' => '',
+                    'is_external' => true,
                 ],
-                'show_label'  => true,
+                'show_label' => true,
             ]
         );
 
@@ -199,7 +200,7 @@ class Commercials_Widget extends Widget_Base
         echo '<div class="commercials-widget carousel slide" data-bs-ride="carousel">';
         echo '<div class="carousel-inner">';
 
-        foreach ($settings['commercials'] as $index=>$item) {
+        foreach ($settings['commercials'] as $index => $item) {
             $this->commercials_html(
                 $item['commercial_link']['url'],
                 $item['commercial_image']['url'],
@@ -222,12 +223,12 @@ class Commercials_Widget extends Widget_Base
      */
     private function commercials_html($commercial_link, $commercial_image, $index)
     {
-        if($index === 0) {
+        if ($index === 0) {
             echo '<div class="carousel-item active">';
-        } else {
+        }else {
             echo '<div class="carousel-item">';
         }
-        echo '<a href="'. $commercial_link . '"><img class="commercials-widget__img-container" src="' . $commercial_image . '"></a>';
+        echo '<a href="' . $commercial_link . '"><img class="commercials-widget__img-container" src="' . $commercial_image . '"></a>';
         echo '</div>';
     }
 }
