@@ -139,6 +139,8 @@
 }
 
 .event-repertoire-card {
+    width: 310px;
+    height: 230px;
     position: relative;
     background-position: center center !important;
     background-repeat: no-repeat !important;
@@ -147,24 +149,121 @@
     flex-direction: column;
     justify-content: end;
     align-items: start;
-    padding: 5px;
+    padding: 10px 8px;
     overflow: hidden;
     border-radius: 0 15px;
 }
 
-.event-repertoire-card__play_img_overlay {
-    position: absolute;
-    height: 80px;
-    width: 80px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    margin: auto;
-    text-align: center;
+.event-repertoire-card--dramski-program {
+    border: 2px solid red;
+}
+
+.event-repertoire-card--deciji-program {
+    border: 2px solid orange;
+}
+
+.event-repertoire-card--muzicki-program {
+    border: 2px solid purple;
+}
+
+.event-repertoire-card--knjizevni-program {
+    border: 2px solid brown;
+}
+
+.event-repertoire-card--none {
+    border: 2px solid darkslategray;
 }
 
 .event-repertoire-card__title {
     color: white;
     word-break: break-word;
 }
+
+.event-repertoire-card__program-sticker {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 8px;
+    color: white;
+    font-size: 12px;
+}
+
+.event-repertoire-card__program-sticker--dramski-program {
+    background-color: red;
+}
+
+.event-repertoire-card__program-sticker--deciji-program {
+    background-color: orange;
+}
+
+.event-repertoire-card__program-sticker--muzicki-program {
+    background-color: purple;
+}
+
+.event-repertoire-card__program-sticker--knjizevni-program {
+    background-color: brown;
+}
+
+.event-repertoire-card__program-sticker--none {
+    background-color: darkslategray;
+}
+
+.event-repertoire-card__program-sticker__title {
+    text-transform: uppercase;
+}
+
+.event-repertoire-card__time-sticker {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    width: 67px;
+}
+
+.event-repertoire-card__time-sticker__date-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    background-color: black;
+    color: white;
+    padding: 5px 0;
+}
+
+.event-repertoire-card__time-sticker__date-wrapper__month {
+    font-size: 13px;
+}
+
+.event-repertoire-card__time-sticker__date-wrapper__day {
+    font-size: 20px;
+    margin-top: -5px;
+}
+
+.event-repertoire-card__time-sticker__time-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    color: black;
+    font-size: 13px;
+    padding: 0 5px;
+}
+
+.event-repertoire-card__name_location {
+    color: white;
+}
+
+.event-repertoire-card__name_location__name {
+    color: white;
+}
+
+.event-repertoire-card__name_location__location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
