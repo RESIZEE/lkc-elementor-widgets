@@ -11,6 +11,7 @@ Author URI: https://resize.rs/
 use Elementor\Card_Preview_Widgets;
 use Elementor\Cinema_Movies_Showcase_Widget;
 use Elementor\Commercials_Widget;
+use Elementor\News_Widget;
 use Elementor\Widgets_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -202,6 +203,7 @@ class Lkc_Elementor_Widgets {
 		require_once( 'widgets/cinema-movies-showcase-widget.php' );
         require_once( 'widgets/commercials.php' );
         require_once( 'widgets/card-preview.php' );
+        require_once( 'widgets/news.php' );
 	}
 
 	/**
@@ -215,6 +217,7 @@ class Lkc_Elementor_Widgets {
 		$widget_manager->register( new Cinema_Movies_Showcase_Widget() );
         $widget_manager->register( new Commercials_Widget() );
         $widget_manager->register( new Card_Preview_Widgets() );
+        $widget_manager->register( new News_Widget() );
 	}
 
 	/**

@@ -66,7 +66,7 @@ class Commercials_Widget extends Widget_Base
     /**
      * Get widget keywords.
      *
-     * Retrieve the list of keywords the Commercials widget belongs to.
+     * Retrieve the list of keywords the Commercials' widget belongs to.
      *
      * @return array Widget keywords.
      */
