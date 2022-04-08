@@ -227,7 +227,7 @@ class News_Widget extends Widget_Base
         $settings = $this->get_settings_for_display();
 
         echo '<div class="news-widget">';
-        echo '<div class="news-widget-container row">';
+        echo '<div class="news-widget-container">';
 
         foreach ($this->get_news($settings['number_of_news']) as $new) {
             $this->card_html(
@@ -239,6 +239,7 @@ class News_Widget extends Widget_Base
         }
 
         echo '</div>';
+        echo '<div class="news-widget__arrows"></div>';
         echo '</div>';
 
     }
@@ -256,15 +257,12 @@ class News_Widget extends Widget_Base
      */
     private function card_html($photo, $news_excerpt, $news_title, $news_permalink)
     {
-        echo '<div class="col-sm-12 col-xl-4">';
-
         echo '<div class="news-widget-card">';
         echo '<img src="' . $photo . '" class="news-widget__image">';
         echo '<p class="news-widget__title">' . $news_title . '</p>';
         echo '<div class="news-widget-description-container">';
         echo '<p class="news-widget__excerpt">' . wp_trim_words($news_excerpt, 20) . '</p>';
         echo '<a href="' . $news_permalink . '" class="news-widget__read_more">PROČITAJ VIŠE <i class="fa-solid fa-arrow-right-long"></i></a>';
-        echo '</div>';
         echo '</div>';
         echo '</div>';
     }
@@ -282,14 +280,12 @@ class News_Widget extends Widget_Base
             'post_type' => 'post',
             'numberposts' => $number,
             'orderby' => 'date',
-            'order' => 'ASC',
+            'order' => 'DESC',
         );
 
         $news = [];
 
         foreach (get_posts($args) as $post) {
-            //$photo_id = $post->photo;
-            //dd($photo_id);
             $news[] = [
                 'photo' => wp_get_attachment_image_url(get_post_thumbnail_id($post->ID), 'medium'),
                 'news_title' => $post->post_title,

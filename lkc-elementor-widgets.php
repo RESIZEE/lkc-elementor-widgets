@@ -193,6 +193,9 @@ class Lkc_Elementor_Widgets {
 
 		// Register Basic Widget Styles
 		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'enqueue_widget_styles' ] );
+
+        // Register Basic Widget Scripts
+        add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'enqueue_widget_scripts' ] );
 	}
 
 	/**
@@ -234,6 +237,18 @@ class Lkc_Elementor_Widgets {
 			plugins_url( '/assets/css/lkc-elementor-widgets.css', LKC_PLUGIN_FILE )
 		);
 	}
+
+    /**
+     * Enqueues basic widget scripts
+     *
+     * @return void
+     */
+    public function enqueue_widget_scripts() {
+        wp_enqueue_script(
+            'lkc-elementor-widgets-scripts',
+            plugins_url( '/assets/js/lkc-elementor-widgets.js', LKC_PLUGIN_FILE )
+        );
+    }
 
 	/**
 	 * Register custom categories
