@@ -11,7 +11,11 @@ Author URI: https://resize.rs/
 use Elementor\Card_Preview_Widgets;
 use Elementor\Cinema_Movies_Showcase_Widget;
 use Elementor\Commercials_Widget;
+<<<<<<< HEAD
 use Elementor\News_Widget;
+=======
+use Elementor\Event_Repertoire_Widget;
+>>>>>>> cc704e8cd182a43d557d1d4593ddf3b9660e0a4d
 use Elementor\Widgets_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -201,9 +205,15 @@ class Lkc_Elementor_Widgets {
 	 */
 	public function require_widget_files() {
 		require_once( 'widgets/cinema-movies-showcase-widget.php' );
+<<<<<<< HEAD
         require_once( 'widgets/commercials.php' );
         require_once( 'widgets/card-preview.php' );
         require_once( 'widgets/news.php' );
+=======
+		require_once( 'widgets/commercials.php' );
+		require_once( 'widgets/card-preview.php' );
+		require_once( 'widgets/event-repertoire.php' );
+>>>>>>> cc704e8cd182a43d557d1d4593ddf3b9660e0a4d
 	}
 
 	/**
@@ -215,9 +225,15 @@ class Lkc_Elementor_Widgets {
 	 */
 	public function register_widgets( Widgets_Manager $widget_manager ) {
 		$widget_manager->register( new Cinema_Movies_Showcase_Widget() );
+<<<<<<< HEAD
         $widget_manager->register( new Commercials_Widget() );
         $widget_manager->register( new Card_Preview_Widgets() );
         $widget_manager->register( new News_Widget() );
+=======
+		$widget_manager->register( new Commercials_Widget() );
+		$widget_manager->register( new Card_Preview_Widgets() );
+		$widget_manager->register( new Event_Repertoire_Widget() );
+>>>>>>> cc704e8cd182a43d557d1d4593ddf3b9660e0a4d
 	}
 
 	/**
