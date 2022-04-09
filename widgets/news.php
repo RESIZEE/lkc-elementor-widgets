@@ -234,7 +234,8 @@ class News_Widget extends Widget_Base
                 $new['photo'],
                 $new['news_excerpt'],
                 $new['news_title'],
-                $new['news_permalink']
+                $new['news_permalink'],
+                $new['news_real_excerpt']
             );
         }
 
@@ -252,16 +253,17 @@ class News_Widget extends Widget_Base
      * @param $news_excerpt
      * @param $news_title
      * @param $news_permalink
+     * @param $news_real_excerpt
      *
      * @return void
      */
-    private function card_html($photo, $news_excerpt, $news_title, $news_permalink)
+    private function card_html($photo, $news_excerpt, $news_title, $news_permalink, $news_real_excerpt)
     {
         echo '<div class="news-widget-card">';
         echo '<img src="' . $photo . '" class="news-widget__image">';
         echo '<p class="news-widget__title">' . $news_title . '</p>';
         echo '<div class="news-widget-description-container">';
-        echo '<p class="news-widget__excerpt">' . wp_trim_words($news_excerpt, 20) . '</p>';
+        echo '<p class="news-widget__excerpt">' . $news_real_excerpt ?: wp_trim_words($news_excerpt, 20) . '</p>';
         echo '<a href="' . $news_permalink . '" class="news-widget__read_more">PROČITAJ VIŠE <i class="fa-solid fa-arrow-right-long"></i></a>';
         echo '</div>';
         echo '</div>';
@@ -290,7 +292,8 @@ class News_Widget extends Widget_Base
                 'photo' => wp_get_attachment_image_url(get_post_thumbnail_id($post->ID), 'medium'),
                 'news_title' => $post->post_title,
                 'news_excerpt' => $post->post_content,
-                'news_permalink' => get_permalink($post->ID)
+                'news_permalink' => get_permalink($post->ID),
+                'news_real_excerpt' => $post->post_excerpt
             ];
         }
 
