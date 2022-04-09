@@ -239,7 +239,7 @@ class News_Widget extends Widget_Base
         }
 
         echo '</div>';
-        echo '<div class="news-widget__arrows"></div>';
+        echo '<div class="news-widget__arrows"><div class="news-widget__count"><span class="current"></span> / <span class="total"></span></div></div>';
         echo '</div>';
 
     }
