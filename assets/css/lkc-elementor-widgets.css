@@ -124,20 +124,16 @@
 /*
     News Widget Style
  */
-/*.news-widget-container div:nth-child(2) {*/
-/*    border-right: 2px solid #707070;*/
-/*    border-left: 2px solid #707070;*/
-/*}*/
+.news-widget-container {
+    height: 450px;
+}
 
-/*.news-widget-container div:nth-child(5) {*/
-/*    border-right: 2px solid #707070;*/
-/*    border-left: 2px solid #707070;*/
-/*}*/
-
-/*.news-widget-container div:nth-child(8) {*/
-/*    border-right: 2px solid #707070;*/
-/*    border-left: 2px solid #707070;*/
-/*}*/
+.news-widget-card:nth-child(5),
+.news-widget-card:nth-child(8),
+.news-widget-card:nth-child(11) {
+    border-right: 2px solid #707070;
+    border-left: 2px solid #707070;
+}
 
 .news-widget-card {
     text-align: center;
@@ -153,13 +149,13 @@
 
 .news-widget__title {
     font-size: 26px;
-    margin: 0.5rem 0 1rem;
+    margin: 1rem 0;
     color: #000;
     font-family: 'Cormorant Garamond', serif;
 }
 
 .news-widget-description-container {
-    padding: 0 40px;
+    padding: 0 20px;
     font-size: 14px;
 }
 
@@ -178,13 +174,57 @@
 
 .news-widget__arrows {
     text-align: center;
-    margin-top: 1rem;
+    position: relative;
+    z-index: 999;
 }
 
 .slick-prev,
 .slick-next {
     background: transparent;
+    color: #707070;
+    border: none;
+}
+
+.slick-prev:hover,
+.slick-prev:active,
+.slick-next:hover,
+.slick-next:active,
+.slick-prev:focus,
+.slick-next:focus {
+    border: none;
     color: #000;
+}
+
+@media only screen and (max-width: 767px) {
+    .news-widget-container {
+        height: 100%;
+    }
+
+    .news-widget-card:nth-child(5),
+    .news-widget-card:nth-child(8),
+    .news-widget-card:nth-child(11) {
+        border: none;
+    }
+
+    .news-widget__arrows {
+        margin-top: 1rem !important;
+    }
+}
+
+@media only screen and (max-width: 1023px) {
+    .news-widget-container {
+        height: 100%;
+    }
+
+    .news-widget-card:nth-child(5),
+    .news-widget-card:nth-child(8),
+    .news-widget-card:nth-child(11) {
+        border: none;
+    }
+
+    .news-widget__arrows {
+        margin-top: 2rem;
+    }
 }
 
 /**
