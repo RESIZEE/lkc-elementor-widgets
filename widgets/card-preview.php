@@ -269,9 +269,9 @@ class Card_Preview_Widgets extends Widget_Base {
 		$this->add_control(
 			'background_image_url_1',
 			array(
-				'label'     => esc_html__( 'Choose image', 'lkc-elementor-widgets' ),
-				'type'      => Controls_Manager::MEDIA,
-				'default'   => array(
+				'label'   => esc_html__( 'Choose image', 'lkc-elementor-widgets' ),
+				'type'    => Controls_Manager::MEDIA,
+				'default' => array(
 					'url' => plugins_url( '/assets/img/placeholder.png', LKC_PLUGIN_FILE ),
 				),
 			)
@@ -313,9 +313,9 @@ class Card_Preview_Widgets extends Widget_Base {
 		$this->add_control(
 			'background_image_url_2',
 			array(
-				'label'     => esc_html__( 'Choose image', 'lkc-elementor-widgets' ),
-				'type'      => Controls_Manager::MEDIA,
-				'default'   => array(
+				'label'   => esc_html__( 'Choose image', 'lkc-elementor-widgets' ),
+				'type'    => Controls_Manager::MEDIA,
+				'default' => array(
 					'url' => plugins_url( '/assets/img/placeholder.png', LKC_PLUGIN_FILE ),
 				),
 			)
@@ -358,9 +358,9 @@ class Card_Preview_Widgets extends Widget_Base {
 		$this->add_control(
 			'background_image_url_3',
 			array(
-				'label'     => esc_html__( 'Choose image', 'lkc-elementor-widgets' ),
-				'type'      => Controls_Manager::MEDIA,
-				'default'   => array(
+				'label'   => esc_html__( 'Choose image', 'lkc-elementor-widgets' ),
+				'type'    => Controls_Manager::MEDIA,
+				'default' => array(
 					'url' => plugins_url( '/assets/img/placeholder.png', LKC_PLUGIN_FILE ),
 				),
 			)
@@ -465,7 +465,7 @@ class Card_Preview_Widgets extends Widget_Base {
 	 * @return void
 	 */
 	private function video_card_html( $video_url, $background_img_url, $card_title ) {
-		$play_button_img_url = plugins_url( '/assets/img/play-button.png', LKC_PLUGIN_FILE );
+		$play_button_img_url = plugins_url( '/assets/img/play-button.svg', LKC_PLUGIN_FILE );
 
 		echo ' <div class="card-preview-card-wrapper">';
 
