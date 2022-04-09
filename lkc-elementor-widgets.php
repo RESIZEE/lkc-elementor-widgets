@@ -96,6 +96,8 @@ class Lkc_Elementor_Widgets {
 			return;
 		}
 
+		$this->require_helper_classes();
+
 		$this->enqueue_widgets();
 
 		// Register Widget Categories
@@ -181,6 +183,15 @@ class Lkc_Elementor_Widgets {
 	}
 
 	/**
+	 * Require helper classes
+	 *
+	 * @return void
+	 */
+	public function require_helper_classes() {
+		require_once( 'helpers/class-program.php' );
+	}
+
+	/**
 	 * Enqueues basic widgets for registration
 	 *
 	 * @return void
@@ -195,8 +206,8 @@ class Lkc_Elementor_Widgets {
 		// Register Basic Widget Styles
 		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'enqueue_widget_styles' ] );
 
-        // Register Basic Widget Scripts
-        add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'enqueue_widget_scripts' ] );
+		// Register Basic Widget Scripts
+		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'enqueue_widget_scripts' ] );
 	}
 
 	/**
@@ -206,9 +217,9 @@ class Lkc_Elementor_Widgets {
 	 */
 	public function require_widget_files() {
 		require_once( 'widgets/cinema-movies-showcase-widget.php' );
-        require_once( 'widgets/commercials.php' );
-        require_once( 'widgets/card-preview.php' );
-        require_once( 'widgets/news.php' );
+		require_once( 'widgets/commercials.php' );
+		require_once( 'widgets/card-preview.php' );
+		require_once( 'widgets/news.php' );
 		require_once( 'widgets/event-repertoire.php' );
 		require_once( 'widgets/news-ticker.php' );
 	}
@@ -222,9 +233,9 @@ class Lkc_Elementor_Widgets {
 	 */
 	public function register_widgets( Widgets_Manager $widget_manager ) {
 		$widget_manager->register( new Cinema_Movies_Showcase_Widget() );
-        $widget_manager->register( new Commercials_Widget() );
-        $widget_manager->register( new Card_Preview_Widgets() );
-        $widget_manager->register( new News_Widget() );
+		$widget_manager->register( new Commercials_Widget() );
+		$widget_manager->register( new Card_Preview_Widgets() );
+		$widget_manager->register( new News_Widget() );
 		$widget_manager->register( new Event_Repertoire_Widget() );
 		$widget_manager->register( new News_Ticker_Widget() );
 	}
@@ -241,17 +252,17 @@ class Lkc_Elementor_Widgets {
 		);
 	}
 
-    /**
-     * Enqueues basic widget scripts
-     *
-     * @return void
-     */
-    public function enqueue_widget_scripts() {
-        wp_enqueue_script(
-            'lkc-elementor-widgets-scripts',
-            plugins_url( '/assets/js/lkc-elementor-widgets.js', LKC_PLUGIN_FILE )
-        );
-    }
+	/**
+	 * Enqueues basic widget scripts
+	 *
+	 * @return void
+	 */
+	public function enqueue_widget_scripts() {
+		wp_enqueue_script(
+			'lkc-elementor-widgets-scripts',
+			plugins_url( '/assets/js/lkc-elementor-widgets.js', LKC_PLUGIN_FILE )
+		);
+	}
 
 	/**
 	 * Register custom categories

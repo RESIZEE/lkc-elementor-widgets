@@ -2,6 +2,7 @@
 
 namespace Elementor;
 
+use Lkc\Helpers\Program\Program;
 use stdClass;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -89,7 +90,8 @@ class Event_Repertoire_Widget extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function register_controls() {}
+	protected function register_controls() {
+	}
 
 	/**
 	 * Render Event Repertoire widget output on the frontend.
@@ -105,9 +107,11 @@ class Event_Repertoire_Widget extends Widget_Base {
 		echo '<div class="event-repertoire-container">';
 		echo ' <div class="event-repertoire-wrapper">';
 		foreach ( $events as $event ):
-			echo "<a href=\"$event->permalink\" target=\"_blank\" style=\"background: url('$event->img_url')\" class=\"event-repertoire-card event-repertoire-card--{$event->program->slug}\">";
+			echo "<a href=\"$event->permalink\" target=\"_blank\" style=\"background: url('$event->img_url')\" class=\"event-repertoire-card event-repertoire-card--{$event->program->getSlug()}\">";
 			$this->time_sticker( $event->date, $event->time );
-			$this->program_sticker( $event->program );
+			echo '<div class="event-repertoire-card__program-sticker">';
+			$event->program->program_sticker();
+			echo '</div>';
 			$this->event_name_and_location( $event );
 			echo '</a>';
 		endforeach;
@@ -133,16 +137,14 @@ class Event_Repertoire_Widget extends Widget_Base {
 		$event_objects = get_posts( $args );
 
 		foreach ( $event_objects as $event_object ) {
-			$event   = new stdClass();
-			$program = new stdClass();
+			$event = new stdClass();
 
 			$event_terms = get_the_terms( $event_object, 'program' );
 			// Getting random index of an term so we can display different one each time.
 			$random_terms_index = is_array( $event_terms ) ? rand( 0, count( $event_terms ) - 1 ) : 0;
 			$program_name       = $event_terms ? $event_terms[ $random_terms_index ]->name : 'Nekategorizovano';
 			$program_slug       = $event_terms ? $event_terms[ $random_terms_index ]->slug : 'none';
-			$program->name      = $program_name;
-			$program->slug      = $program_slug;
+			$event->program     = new Program( $program_name, $program_slug );
 
 			$location_field_object = get_field_object( 'location', $event_object->ID ) ?: [];
 			$location_field_key    = array_key_exists( 'value', $location_field_object ) ? $location_field_object['value'] : '';
@@ -161,7 +163,6 @@ class Event_Repertoire_Widget extends Widget_Base {
 			];
 			$event->time     = $event_object->time_of_event ?
 				substr( $event_object->time_of_event, 0, 5 ) : '';
-			$event->program  = $program;
 
 
 			$events[] = $event;
@@ -185,49 +186,6 @@ class Event_Repertoire_Widget extends Widget_Base {
 			11 => 'Nov',
 			12 => 'Dec',
 		)[ (int) $month_number ];
-	}
-
-	/**
-	 * Returns HTML for program sticker.
-	 *
-	 * @param stdClass $program
-	 *
-	 * @return void
-	 */
-	private function program_sticker( stdClass $program ): void {
-		$program_icon_class = $this->program_icon_class( $program->slug );
-
-		echo "<div class=\"event-repertoire-card__program-sticker event-repertoire-card__program-sticker--$program->slug\">";
-		echo '<i class="fas fa-chevron-right"></i>';
-		echo "<span class=\"event-repertoire-card__program-sticker__title\">$program->name</span>";
-		echo "<i class=\"fas $program_icon_class\"></i>";
-		echo '</div>';
-	}
-
-	/**
-	 * Returns class needed for specific program.
-	 *
-	 * @param string $program_slug
-	 *
-	 * @return string
-	 */
-	private function program_icon_class( string $program_slug ): string {
-		return match ( $program_slug ) {
-			'dramski-program' => 'fa-theater-masks',
-			'deciji-program' => 'fa-child',
-			'muzicki-program' => 'fa-music',
-			'knjizevni-program' => 'fa-book-open',
-			'likovni-program' => 'fa-book-open',
-			'tribinski-program' => 'fa-book-open',
-			'izdavacki-program' => 'fa-book-open',
-			'filmski-program' => 'fa-book-open',
-			'scenski-program' => 'fa-book-open',
-			'amaterski-program' => 'fa-book-open',
-			'umetnost-fotografije' => 'fa-book-open',
-			'projektni-program' => 'fa-book-open',
-			'odnos-s-javnoscu' => 'fa-book-open',
-			default => 'fa-question'
-		};
 	}
 
 	/**
