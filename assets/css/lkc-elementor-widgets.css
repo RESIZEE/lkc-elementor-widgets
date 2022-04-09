@@ -357,39 +357,39 @@
 }
 
 .event-repertoire-card__program-sticker--likovni-program {
-    border: 2px solid #00C2FF;
+    background-color: #00C2FF;
 }
 
 .event-repertoire-card__program-sticker--tribinski-program {
-    border: 2px solid brown;
+    background-color: brown;
 }
 
 .event-repertoire-card__program-sticker--izdavacki-program {
-    border: 2px solid brown;
+    background-color: brown;
 }
 
 .event-repertoire-card__program-sticker--filmski-program {
-    border: 2px solid brown;
+    background-color: brown;
 }
 
 .event-repertoire-card__program-sticker--scenski-program {
-    border: 2px solid brown;
+    background-color: brown;
 }
 
 .event-repertoire-card__program-sticker--amaterski-program {
-    border: 2px solid brown;
+    background-color: brown;
 }
 
 .event-repertoire-card__program-sticker--umetnost-fotografije {
-    border: 2px solid brown;
+    background-color: brown;
 }
 
 .event-repertoire-card__program-sticker--projektni-program {
-    border: 2px solid brown;
+    background-color: brown;
 }
 
 .event-repertoire-card__program-sticker--odnos-s-javnoscu {
-    border: 2px solid brown;
+    background-color: brown;
 }
 
 .event-repertoire-card__program-sticker--none {
