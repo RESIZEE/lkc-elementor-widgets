@@ -173,9 +173,16 @@
 }
 
 .news-widget__arrows {
-    text-align: center;
+    display: flex;
     position: relative;
+    justify-content: center;
+    align-items: center;
     z-index: 999;
+}
+
+.news-widget__count {
+    color: #000;
+    font-size: 22px;
 }
 
 .slick-prev,
@@ -261,18 +268,54 @@
 }
 
 .event-repertoire-card--dramski-program {
-    border: 2px solid red;
+    border: 2px solid #FF0000;
 }
 
 .event-repertoire-card--deciji-program {
-    border: 2px solid orange;
+    border: 2px solid #FFAA00;
 }
 
 .event-repertoire-card--muzicki-program {
-    border: 2px solid purple;
+    border: 2px solid #FF00FF;
 }
 
 .event-repertoire-card--knjizevni-program {
+    border: 2px solid #924205;
+}
+
+.event-repertoire-card--likovni-program {
+    border: 2px solid #00C2FF;
+}
+
+.event-repertoire-card--tribinski-program {
+    border: 2px solid brown;
+}
+
+.event-repertoire-card--izdavacki-program {
+    border: 2px solid brown;
+}
+
+.event-repertoire-card--filmski-program {
+    border: 2px solid brown;
+}
+
+.event-repertoire-card--scenski-program {
+    border: 2px solid brown;
+}
+
+.event-repertoire-card--amaterski-program {
+    border: 2px solid brown;
+}
+
+.event-repertoire-card--umetnost-fotografije {
+    border: 2px solid brown;
+}
+
+.event-repertoire-card--projektni-program {
+    border: 2px solid brown;
+}
+
+.event-repertoire-card--odnos-s-javnoscu {
     border: 2px solid brown;
 }
 
@@ -289,6 +332,9 @@
     position: absolute;
     left: 0;
     top: 20px;
+}
+
+.program-sticker {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -297,27 +343,63 @@
     font-size: 12px;
 }
 
-.event-repertoire-card__program-sticker--dramski-program {
-    background-color: red;
+.program-sticker--dramski-program {
+    background-color: #FF0000;
 }
 
-.event-repertoire-card__program-sticker--deciji-program {
-    background-color: orange;
+.program-sticker--deciji-program {
+    background-color: #FFAA00;
 }
 
-.event-repertoire-card__program-sticker--muzicki-program {
-    background-color: purple;
+.program-sticker--muzicki-program {
+    background-color: #FF00FF;
 }
 
-.event-repertoire-card__program-sticker--knjizevni-program {
+.program-sticker--knjizevni-program {
+    background-color: #924205;
+}
+
+.program-sticker--likovni-program {
+    background-color: #00C2FF;
+}
+
+.program-sticker--tribinski-program {
     background-color: brown;
 }
 
-.event-repertoire-card__program-sticker--none {
+.program-sticker--izdavacki-program {
+    background-color: brown;
+}
+
+.program-sticker--filmski-program {
+    background-color: brown;
+}
+
+.program-sticker--scenski-program {
+    background-color: brown;
+}
+
+.program-sticker--amaterski-program {
+    background-color: brown;
+}
+
+.program-sticker--umetnost-fotografije {
+    background-color: brown;
+}
+
+.program-sticker--projektni-program {
+    background-color: brown;
+}
+
+.program-sticker--odnos-s-javnoscu {
+    background-color: brown;
+}
+
+.program-sticker--none {
     background-color: darkslategray;
 }
 
-.event-repertoire-card__program-sticker__title {
+.program-sticker__title {
     text-transform: uppercase;
 }
 
@@ -378,7 +460,7 @@
     News Ticker Widget Style
  */
 
-.news-ticker-container{
+.news-ticker-container {
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -387,7 +469,7 @@
     border-radius: 10px;
 }
 
-.news-ticker__title{
+.news-ticker__title {
     position: absolute;
     display: flex;
     align-items: center;
@@ -398,7 +480,7 @@
     z-index: 10;
 }
 
-.news-ticker__title h5{
+.news-ticker__title h5 {
     font-size: 1rem;
     color: #fff;
     font-weight: normal;
@@ -439,11 +521,11 @@
     border-right: 1px solid #e8e8e8;
 }
 
-.news-ticker__item a{
+.news-ticker__item a {
     color: #000;
 }
 
-.news-ticker__item-read-more{
+.news-ticker__item-read-more {
     color: #015eab;
     font-size: .8rem;
     text-decoration: underline;

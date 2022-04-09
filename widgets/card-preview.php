@@ -266,24 +266,20 @@ class Card_Preview_Widgets extends Widget_Base {
 				'placeholder' => esc_html__( 'Type card title here', 'lkc-elementor-widgets' ),
 			)
 		);
-		// When image selected
 		$this->add_control(
 			'background_image_url_1',
 			array(
-				'label'     => esc_html__( 'Choose image', 'lkc-elementor-widgets' ),
-				'type'      => Controls_Manager::MEDIA,
-				'default'   => array(
+				'label'   => esc_html__( 'Choose image', 'lkc-elementor-widgets' ),
+				'type'    => Controls_Manager::MEDIA,
+				'default' => array(
 					'url' => plugins_url( '/assets/img/placeholder.png', LKC_PLUGIN_FILE ),
 				),
-				'condition' => array(
-					'card_type' => 'image',
-				),
 			)
 		);
 		$this->add_control(
-			'image_card_link_1',
+			'card_link_url_1',
 			array(
-				'label'       => esc_html__( 'Image Link', 'lkc-elementor-widgets' ),
+				'label'       => esc_html__( 'Card Link URL', 'lkc-elementor-widgets' ),
 				'type'        => Controls_Manager::URL,
 				'placeholder' => esc_html__( 'https://your-link.com', 'lkc-elementor-widgets' ),
 				'default'     => [
@@ -292,27 +288,6 @@ class Card_Preview_Widgets extends Widget_Base {
 					'nofollow'          => true,
 					'custom_attributes' => '',
 				],
-				'condition'   => array(
-					'card_type' => 'image',
-				),
-			)
-		);
-		// When video selected
-		$this->add_control(
-			'video_url_1',
-			array(
-				'label'       => esc_html__( 'Video URL', 'lkc-elementor-widgets' ),
-				'type'        => Controls_Manager::URL,
-				'placeholder' => esc_html__( 'https://your-link.com', 'lkc-elementor-widgets' ),
-				'default'     => [
-					'url'               => '#',
-					'is_external'       => true,
-					'nofollow'          => true,
-					'custom_attributes' => '',
-				],
-				'condition'   => array(
-					'card_type' => 'video',
-				),
 			)
 		);
 		$this->end_controls_section();
@@ -335,24 +310,20 @@ class Card_Preview_Widgets extends Widget_Base {
 				'placeholder' => esc_html__( 'Type card title here', 'lkc-elementor-widgets' ),
 			)
 		);
-		// When image selected
 		$this->add_control(
 			'background_image_url_2',
 			array(
-				'label'     => esc_html__( 'Choose image', 'lkc-elementor-widgets' ),
-				'type'      => Controls_Manager::MEDIA,
-				'default'   => array(
+				'label'   => esc_html__( 'Choose image', 'lkc-elementor-widgets' ),
+				'type'    => Controls_Manager::MEDIA,
+				'default' => array(
 					'url' => plugins_url( '/assets/img/placeholder.png', LKC_PLUGIN_FILE ),
 				),
-				'condition' => array(
-					'card_type' => 'image',
-				),
 			)
 		);
 		$this->add_control(
-			'image_card_link_2',
+			'card_link_url_2',
 			array(
-				'label'       => esc_html__( 'Image Link', 'lkc-elementor-widgets' ),
+				'label'       => esc_html__( 'Card Link URL', 'lkc-elementor-widgets' ),
 				'type'        => Controls_Manager::URL,
 				'placeholder' => esc_html__( 'https://your-link.com', 'lkc-elementor-widgets' ),
 				'default'     => [
@@ -361,27 +332,6 @@ class Card_Preview_Widgets extends Widget_Base {
 					'nofollow'          => true,
 					'custom_attributes' => '',
 				],
-				'condition'   => array(
-					'card_type' => 'image',
-				),
-			)
-		);
-		// When video selected
-		$this->add_control(
-			'video_url_2',
-			array(
-				'label'       => esc_html__( 'Video URL', 'lkc-elementor-widgets' ),
-				'type'        => Controls_Manager::URL,
-				'placeholder' => esc_html__( 'https://your-link.com', 'lkc-elementor-widgets' ),
-				'default'     => [
-					'url'               => '#',
-					'is_external'       => true,
-					'nofollow'          => true,
-					'custom_attributes' => '',
-				],
-				'condition'   => array(
-					'card_type' => 'video',
-				),
 			)
 		);
 		$this->end_controls_section();
@@ -408,20 +358,17 @@ class Card_Preview_Widgets extends Widget_Base {
 		$this->add_control(
 			'background_image_url_3',
 			array(
-				'label'     => esc_html__( 'Choose image', 'lkc-elementor-widgets' ),
-				'type'      => Controls_Manager::MEDIA,
-				'default'   => array(
+				'label'   => esc_html__( 'Choose image', 'lkc-elementor-widgets' ),
+				'type'    => Controls_Manager::MEDIA,
+				'default' => array(
 					'url' => plugins_url( '/assets/img/placeholder.png', LKC_PLUGIN_FILE ),
 				),
-				'condition' => array(
-					'card_type' => 'image',
-				),
 			)
 		);
 		$this->add_control(
-			'image_card_link_3',
+			'card_link_url_3',
 			array(
-				'label'       => esc_html__( 'Image Link', 'lkc-elementor-widgets' ),
+				'label'       => esc_html__( 'Card Link URL', 'lkc-elementor-widgets' ),
 				'type'        => Controls_Manager::URL,
 				'placeholder' => esc_html__( 'https://your-link.com', 'lkc-elementor-widgets' ),
 				'default'     => [
@@ -430,27 +377,6 @@ class Card_Preview_Widgets extends Widget_Base {
 					'nofollow'          => true,
 					'custom_attributes' => '',
 				],
-				'condition'   => array(
-					'card_type' => 'image',
-				),
-			)
-		);
-		// When video selected
-		$this->add_control(
-			'video_url_3',
-			array(
-				'label'       => esc_html__( 'Video URL', 'lkc-elementor-widgets' ),
-				'type'        => Controls_Manager::URL,
-				'placeholder' => esc_html__( 'https://your-link.com', 'lkc-elementor-widgets' ),
-				'default'     => [
-					'url'               => '#',
-					'is_external'       => true,
-					'nofollow'          => true,
-					'custom_attributes' => '',
-				],
-				'condition'   => array(
-					'card_type' => 'video',
-				),
 			)
 		);
 		$this->end_controls_section();
@@ -516,9 +442,17 @@ class Card_Preview_Widgets extends Widget_Base {
 
 		for ( $i = 1; $i <= 3; $i ++ ) {
 			if ( $is_image_card ) {
-				$this->image_card_html( $settings["image_card_link_$i"]['url'], $settings["background_image_url_$i"]['url'], $settings["card_title_$i"] );
+				$this->image_card_html(
+					$settings["card_link_url_$i"]['url'],
+					$settings["background_image_url_$i"]['url'],
+					$settings["card_title_$i"]
+				);
 			} else {
-				$this->video_card_html( $settings["video_url_$i"]['url'], plugins_url( '/assets/img/placeholder.png', LKC_PLUGIN_FILE ), $settings["card_title_$i"] );
+				$this->video_card_html(
+					$settings["card_link_url_$i"]['url'],
+					$settings["background_image_url_$i"]['url'],
+					$settings["card_title_$i"]
+				);
 			}
 		}
 		echo '</div>';
@@ -531,7 +465,7 @@ class Card_Preview_Widgets extends Widget_Base {
 	 * @return void
 	 */
 	private function video_card_html( $video_url, $background_img_url, $card_title ) {
-		$play_button_img_url = plugins_url( '/assets/img/play-button.png', LKC_PLUGIN_FILE );
+		$play_button_img_url = plugins_url( '/assets/img/play-button.svg', LKC_PLUGIN_FILE );
 
 		echo ' <div class="card-preview-card-wrapper">';
 
@@ -551,8 +485,8 @@ class Card_Preview_Widgets extends Widget_Base {
 	 *
 	 * @return void
 	 */
-	private function image_card_html( $image_card_link, $background_img_url, $card_title ) {
-		echo "<a href=\"$image_card_link\" target=\"_blank\" style=\"background: url('$background_img_url')\" class=\"card-preview-card\">";
+	private function image_card_html( $card_link_url, $background_img_url, $card_title ) {
+		echo "<a href=\"$card_link_url\" target=\"_blank\" style=\"background: url('$background_img_url')\" class=\"card-preview-card\">";
 		echo "<p class=\"card-preview-card__title\">$card_title</p>";
 		echo '</a>';
 	}

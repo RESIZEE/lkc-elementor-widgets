@@ -158,7 +158,7 @@ class Hero_Slider_Widget extends Widget_Base
      * @param $slug
      * @param $program
      * @param $excerpt
-     * 
+     *
      * @return void
      */
     private function card_html($name, $permalink, $image, $location, $time, $date, $slug, $program, $excerpt): void
