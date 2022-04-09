@@ -144,39 +144,6 @@ class Card_Preview_Widgets extends Widget_Base {
 				),
 			],
 		);
-		$this->add_responsive_control(
-			'image_card_width',
-			[
-				'label'      => esc_html__( 'Card Image Width', 'lkc-elementor-widgets' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => array( 'px', '%', 'vh' ),
-				'range'      => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 1000,
-						'step' => 5,
-					),
-					'%'  => array(
-						'min' => 0,
-						'max' => 100,
-					),
-					'vh' => array(
-						'min' => 0,
-						'max' => 100,
-					),
-				),
-				'default'    => array(
-					'unit' => 'px',
-					'size' => '240',
-				),
-				'selectors'  => array(
-					'{{WRAPPER}} .card-preview-card' => 'max-width: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
-				),
-				'condition'  => array(
-					'card_type' => 'image',
-				),
-			],
-		);
 		// When video selected
 		$this->add_responsive_control(
 			'video_card_height',
@@ -206,40 +173,6 @@ class Card_Preview_Widgets extends Widget_Base {
 				'selectors'  => array(
 					'{{WRAPPER}} .card-preview-card-wrapper' => 'max-height: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .card-preview-card'         => 'height: 100%;',
-				),
-				'condition'  => array(
-					'card_type' => 'video',
-				),
-			],
-		);
-		$this->add_responsive_control(
-			'video_card_width',
-			[
-				'label'      => esc_html__( 'Card Video Width', 'lkc-elementor-widgets' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => array( 'px', '%', 'vh' ),
-				'range'      => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 1000,
-						'step' => 5,
-					),
-					'%'  => array(
-						'min' => 0,
-						'max' => 100,
-					),
-					'vh' => array(
-						'min' => 0,
-						'max' => 100,
-					),
-				),
-				'default'    => array(
-					'unit' => 'px',
-					'size' => '240',
-				),
-				'selectors'  => array(
-					'{{WRAPPER}} .card-preview-card-wrapper' => 'max-width: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .card-preview-card'         => 'width: 100%;',
 				),
 				'condition'  => array(
 					'card_type' => 'video',

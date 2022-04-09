@@ -90,8 +90,7 @@ class Event_Repertoire_Widget extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function register_controls() {
-	}
+	protected function register_controls() {}
 
 	/**
 	 * Render Event Repertoire widget output on the frontend.
@@ -155,15 +154,13 @@ class Event_Repertoire_Widget extends Widget_Base {
 			$event->permalink = get_permalink( $event_object );
 
 			$event->location = $location;
+			$date_object     = $event_object->date_of_event ? new \DateTime( $event_object->date_of_event ) : '';
 			$event->date     = [
-				'day'   => $event_object->date_of_event ?
-					substr( $event_object->date_of_event, 2, 2 ) : '',
-				'month' => $event_object->date_of_event ?
-					$this->get_short_month_name( substr( $event_object->date_of_event, 4, 2 ) ) : '',
+				'day'   => $date_object ? $date_object->format( 'd' ) : '',
+				'month' => $date_object ? $this->get_short_month_name( $date_object->format( 'm' ) ) : '',
 			];
-			$event->time     = $event_object->time_of_event ?
-				substr( $event_object->time_of_event, 0, 5 ) : '';
-
+			$time_object     = $event_object->time_of_event ? new \DateTime( $event_object->time_of_event ) : '';
+			$event->time     = $time_object ? $time_object->format( 'H.i' ) : '';
 
 			$events[] = $event;
 		}
