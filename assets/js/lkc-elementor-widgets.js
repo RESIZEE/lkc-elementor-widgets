@@ -8,15 +8,21 @@ $jq(document).ready(function() {
     // News slick carousel
     $jq('.news-widget-container')
         .on('init', function(event, slick) {
-            $jq('.news-widget__count');
+            
             if(slick.breakpoint < 480) {
+                $jq('.news-widget__count');
                 $jq('.current').text(slick.currentSlide + 1);
+                $jq('.total').text(slick.slideCount);
             }else if(slick.breakpoint < 1024) {
+                $jq('.news-widget__count');
                 $jq('.current').text(slick.currentSlide + 2);
+                $jq('.total').text(slick.slideCount);
             }else {
+                $jq('.news-widget__count');
                 $jq('.current').text(slick.currentSlide + 3);
+                $jq('.total').text(slick.slideCount);
             }
-            $jq('.total').text(slick.slideCount);
+
         })
         .slick({
             infinite: true,
