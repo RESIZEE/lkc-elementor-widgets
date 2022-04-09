@@ -56,10 +56,6 @@ $jq(document).ready(function() {
     // Cinema movies slick carousel
     $jq('.cinema-movies-showcase-wrapper')
         .slick({
-            infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            mobileFirst: true,
             responsive: [
                 {
                     breakpoint: 2000,
@@ -80,8 +76,10 @@ $jq(document).ready(function() {
                 {
                     breakpoint: 480,
                     settings: {
+                        arrows: false,
+                        centerMode: true,
                         slidesToShow: 1,
-                        slidesToScroll: 1,
+                        centerPadding: "30px",
                     },
                 },
             ],

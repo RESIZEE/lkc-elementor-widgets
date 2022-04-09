@@ -88,7 +88,8 @@ class Cinema_Movies_Showcase_Widget extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function register_controls() {}
+	protected function register_controls() {
+	}
 
 	/**
 	 * Render Cinema Movies Showcase widget output on the frontend.
@@ -104,10 +105,12 @@ class Cinema_Movies_Showcase_Widget extends Widget_Base {
 		echo '<div class="cinema-movies-showcase-container">';
 		echo ' <div class="cinema-movies-showcase-wrapper">';
 		foreach ( $movies as $movie ):
+			echo '<div>';
 			echo "<a href=\"$movie->permalink\" target=\"_blank\" style=\"background: url('$movie->img_url')\" class=\"cinema-movies-showcase-card\">";
 			echo '<div class="cinema-movies-showcase-card__overlay"></div>';
 			echo "<h3 class=\"cinema-movies-showcase-card__title\">$movie->post_title</h3>";
 			echo '</a>';
+			echo '</div>';
 		endforeach;
 		echo '</div>';
 		echo '</div>';
