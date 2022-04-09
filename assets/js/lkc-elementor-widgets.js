@@ -33,4 +33,8 @@ $jq(document).ready(function () {
             }
         ]
     });
+
+    $jq('.hero-slider-container').slick({
+        infinite: true,
+    });
 });
