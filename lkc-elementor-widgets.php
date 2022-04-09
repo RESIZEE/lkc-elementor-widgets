@@ -11,6 +11,7 @@ Author URI: https://resize.rs/
 use Elementor\Card_Preview_Widgets;
 use Elementor\Cinema_Movies_Showcase_Widget;
 use Elementor\Commercials_Widget;
+use Elementor\News_Ticker_Widget;
 use Elementor\News_Widget;
 use Elementor\Event_Repertoire_Widget;
 use Elementor\Widgets_Manager;
@@ -209,6 +210,7 @@ class Lkc_Elementor_Widgets {
         require_once( 'widgets/card-preview.php' );
         require_once( 'widgets/news.php' );
 		require_once( 'widgets/event-repertoire.php' );
+		require_once( 'widgets/news-ticker.php' );
 	}
 
 	/**
@@ -224,6 +226,7 @@ class Lkc_Elementor_Widgets {
         $widget_manager->register( new Card_Preview_Widgets() );
         $widget_manager->register( new News_Widget() );
 		$widget_manager->register( new Event_Repertoire_Widget() );
+		$widget_manager->register( new News_Ticker_Widget() );
 	}
 
 	/**
