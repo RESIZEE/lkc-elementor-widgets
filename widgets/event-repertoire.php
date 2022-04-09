@@ -217,6 +217,15 @@ class Event_Repertoire_Widget extends Widget_Base {
 			'deciji-program' => 'fa-child',
 			'muzicki-program' => 'fa-music',
 			'knjizevni-program' => 'fa-book-open',
+			'likovni-program' => 'fa-book-open',
+			'tribinski-program' => 'fa-book-open',
+			'izdavacki-program' => 'fa-book-open',
+			'filmski-program' => 'fa-book-open',
+			'scenski-program' => 'fa-book-open',
+			'amaterski-program' => 'fa-book-open',
+			'umetnost-fotografije' => 'fa-book-open',
+			'projektni-program' => 'fa-book-open',
+			'odnos-s-javnoscu' => 'fa-book-open',
 			default => 'fa-question'
 		};
 	}
