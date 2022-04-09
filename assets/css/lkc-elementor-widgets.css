@@ -200,6 +200,7 @@
 .slick-next:focus {
     border: none;
     color: #000;
+    background: transparent;
 }
 
 @media only screen and (max-width: 767px) {
