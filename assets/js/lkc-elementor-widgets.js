@@ -8,14 +8,7 @@ $jq(document).ready(function() {
     // News slick carousel
     $jq('.news-widget-container')
         .on('init', function(event, slick) {
-            $jq('.news-widget__count');
-            if(slick.breakpoint < 480) {
-                $jq('.current').text(slick.currentSlide + 1);
-            }else if(slick.breakpoint < 1024) {
-                $jq('.current').text(slick.currentSlide + 2);
-            }else {
-                $jq('.current').text(slick.currentSlide + 3);
-            }
+            $jq('.news-widget__count .current').text(slick.currentSlide + slick.options.slidesToShow);
             $jq('.total').text(slick.slideCount);
         })
         .slick({
@@ -43,14 +36,8 @@ $jq(document).ready(function() {
                 },
             ],
         })
-        .on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-            if(slick.breakpoint < 480) {
-                $jq('.current').text(nextSlide + 1);
-            }else if(slick.breakpoint < 1024) {
-                $jq('.current').text(nextSlide + 2);
-            }else {
-                $jq('.current').text(nextSlide + 3);
-            }
+        .on('afterChange', function(event, slick, currentSlide, nextSlide) {
+            $jq('.news-widget__count .current').text(currentSlide + slick.options.slidesToShow);
         });
 
     // Cinema movies slick carousel

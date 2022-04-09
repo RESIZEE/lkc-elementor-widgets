@@ -271,7 +271,10 @@
 }
 
 @media only screen and (max-width: 672px) {
-    .event-repertoire-card {
+    .event-repertoire-card,
+    .card-preview-wrapper,
+    .card-preview-card,
+    .card-preview-card-wrapper {
         width: 100%;
     }
 }
