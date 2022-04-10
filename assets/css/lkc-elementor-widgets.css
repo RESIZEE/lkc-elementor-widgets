@@ -544,6 +544,16 @@
     margin-left: .5rem;
 }
 
+@media screen and (max-width: 768px) {
+    .news-ticker__title{
+        padding-top: .3rem;
+        width: 20%;
+    }
+    .news-ticker__title h5 {
+        font-size: .8rem;
+    }
+}
+
 
 @-webkit-keyframes ticker {
     0% {
@@ -666,6 +676,9 @@
 @media screen and (max-width: 992px) {
     .hero-slider-info__date-time{
         top: 80%;
+    }
+    .hero-slider-info{
+        padding: 3em 0;
     }
     .hero-slider-info h2{
         font-size: 25px;
