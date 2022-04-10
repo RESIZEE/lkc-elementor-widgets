@@ -53,7 +53,7 @@ class Event_Repertoire_Widget extends Widget_Base {
 	 * @access public
 	 */
 	public function get_icon(): string {
-		return 'eicon-testimonial-carousel';
+		return 'eicon-calendar';
 	}
 
 	/**
