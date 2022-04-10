@@ -218,7 +218,7 @@ class Event_Repertoire_Widget extends Widget_Base {
 	private function event_name_and_location( stdClass $event ): void {
 		echo '<div class="event-repertoire-card__name_location">';
 
-		echo "<h3 class=\"event-repertoire-card__name_location__name\">$event->name</h3>";
+		echo "<p class=\"event-repertoire-card__name_location__name\">$event->name</p>";
 		echo "<p class=\"event-repertoire-card__name_location__location\"><i class=\"fas fa-map-marker-alt\"></i> $event->location</p>";
 
 		echo '</div>';
