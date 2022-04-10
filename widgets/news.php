@@ -105,16 +105,6 @@ class News_Widget extends Widget_Base
             )
         );
 
-        $this->add_control(
-            'number_of_news',
-            array(
-                'label' => esc_html__('Number of news', 'lkc-elementor-widgets'),
-                'type' => Controls_Manager::NUMBER,
-                'placeholder' => esc_html__('#', 'lkc-elementor-widgets'),
-                'default' => '9',
-            )
-        );
-
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -129,7 +119,7 @@ class News_Widget extends Widget_Base
             'news-image-dimensions',
             [
                 'label' => esc_html__('Image Height', 'lkc-elementor-widgets'),
-                'type' => \Elementor\Controls_Manager::SLIDER,
+                'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%'],
                 'range' => [
                     'px' => [
@@ -224,12 +214,10 @@ class News_Widget extends Widget_Base
      */
     protected function render()
     {
-        $settings = $this->get_settings_for_display();
-
         echo '<div class="news-widget">';
         echo '<div class="news-widget-container">';
 
-        foreach ($this->get_news($settings['number_of_news']) as $new) {
+        foreach ($this->get_news() as $new) {
             $this->card_html(
                 $new['photo'],
                 $new['news_excerpt'],
@@ -274,11 +262,11 @@ class News_Widget extends Widget_Base
      *
      * @return array
      */
-    private function get_news(int $number = 0): array
+    private function get_news(): array
     {
         $args = array(
             'post_type' => 'post',
-            'numberposts' => $number,
+            'numberposts' => 12,
             'orderby' => 'date',
             'order' => 'DESC',
         );
