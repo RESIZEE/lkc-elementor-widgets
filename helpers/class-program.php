@@ -4,8 +4,7 @@ namespace Lkc\Helpers\Program;
 
 class Program {
 
-	public function __construct( private string $name, private string $slug ) {
-	}
+	public function __construct( private string $name, private string $slug ) {}
 
 	/**
 	 * Getter method for name property
@@ -47,19 +46,18 @@ class Program {
 	 */
 	private function program_icon_class( string $program_slug ): string {
 		return match ( $program_slug ) {
-			'dramski-program' => 'fa-theater-masks',
+			'scenski-program' => 'fa-theater-masks',
 			'deciji-program' => 'fa-child',
 			'muzicki-program' => 'fa-music',
 			'knjizevni-program' => 'fa-book-open',
-			'likovni-program' => 'fa-book-open',
-			'tribinski-program' => 'fa-book-open',
-			'izdavacki-program' => 'fa-book-open',
-			'filmski-program' => 'fa-book-open',
-			'scenski-program' => 'fa-book-open',
-			'amaterski-program' => 'fa-book-open',
-			'umetnost-fotografije' => 'fa-book-open',
-			'projektni-program' => 'fa-book-open',
-			'odnos-s-javnoscu' => 'fa-book-open',
+			'likovni-program' => 'fa-palette',
+			'tribinski-program' => 'fa-users',
+			'izdavacki-program' => 'fa-book',
+			'filmski-program' => 'fa-film',
+			'amaterski-program' => 'fa-theater-masks',
+			'umetnost-fotografije' => 'fa-camera',
+			'projektni-program' => 'fa-file',
+			'odnos-s-javnoscu' => 'fa-bullhorn',
 			default => 'fa-question'
 		};
 	}

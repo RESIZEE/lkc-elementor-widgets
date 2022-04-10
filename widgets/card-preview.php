@@ -37,7 +37,7 @@ class Card_Preview_Widgets extends Widget_Base {
 	 * @access public
 	 */
 	public function get_title() {
-		return esc_html__( 'Multiple Card Like Preview', 'lkc-elementor-widgets' );
+		return esc_html__( 'Multiple Cards Preview', 'lkc-elementor-widgets' );
 	}
 
 	/**
@@ -50,7 +50,7 @@ class Card_Preview_Widgets extends Widget_Base {
 	 * @access public
 	 */
 	public function get_icon() {
-		return 'eicon-product-categories';
+		return 'eicon-gallery-grid';
 	}
 
 	/**

@@ -279,7 +279,7 @@
     }
 }
 
-.event-repertoire-card--dramski-program {
+.event-repertoire-card--scenski-program {
     border: 2px solid #FF0000;
 }
 
@@ -300,35 +300,31 @@
 }
 
 .event-repertoire-card--tribinski-program {
-    border: 2px solid brown;
+    border: 2px solid #7B1717;
 }
 
 .event-repertoire-card--izdavacki-program {
-    border: 2px solid brown;
+    border: 2px solid #FF8000;
 }
 
 .event-repertoire-card--filmski-program {
-    border: 2px solid brown;
-}
-
-.event-repertoire-card--scenski-program {
-    border: 2px solid brown;
+    border: 2px solid #0044FF;
 }
 
 .event-repertoire-card--amaterski-program {
-    border: 2px solid brown;
+    border: 2px solid #057A18;
 }
 
 .event-repertoire-card--umetnost-fotografije {
-    border: 2px solid brown;
+    border: 2px solid #9100FF;
 }
 
 .event-repertoire-card--projektni-program {
-    border: 2px solid brown;
+    border: 2px solid #017087;
 }
 
 .event-repertoire-card--odnos-s-javnoscu {
-    border: 2px solid brown;
+    border: 2px solid #110F51;
 }
 
 .event-repertoire-card--none {
@@ -355,7 +351,7 @@
     font-size: 12px;
 }
 
-.program-sticker--dramski-program {
+.program-sticker--scenski-program {
     background-color: #FF0000;
 }
 
@@ -376,35 +372,31 @@
 }
 
 .program-sticker--tribinski-program {
-    background-color: brown;
+    background-color: #7B1717;
 }
 
 .program-sticker--izdavacki-program {
-    background-color: brown;
+    background-color: #FF8000;
 }
 
 .program-sticker--filmski-program {
-    background-color: brown;
-}
-
-.program-sticker--scenski-program {
-    background-color: brown;
+    background-color: #0044FF;
 }
 
 .program-sticker--amaterski-program {
-    background-color: brown;
+    background-color: #057A18;
 }
 
 .program-sticker--umetnost-fotografije {
-    background-color: brown;
+    background-color: #9100FF;
 }
 
 .program-sticker--projektni-program {
-    background-color: brown;
+    background-color: #017087;
 }
 
 .program-sticker--odnos-s-javnoscu {
-    background-color: brown;
+    background-color: #110F51;
 }
 
 .program-sticker--none {

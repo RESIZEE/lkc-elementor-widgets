@@ -51,7 +51,7 @@ class Cinema_Movies_Showcase_Widget extends Widget_Base {
 	 * @access public
 	 */
 	public function get_icon(): string {
-		return 'eicon-testimonial-carousel';
+		return 'eicon-video-camera';
 	}
 
 	/**
@@ -108,7 +108,7 @@ class Cinema_Movies_Showcase_Widget extends Widget_Base {
 			echo '<div>';
 			echo "<a href=\"$movie->permalink\" target=\"_blank\" style=\"background: url('$movie->img_url')\" class=\"cinema-movies-showcase-card\">";
 			echo '<div class="cinema-movies-showcase-card__overlay"></div>';
-			echo "<h3 class=\"cinema-movies-showcase-card__title\">$movie->post_title</h3>";
+			echo "<p class=\"cinema-movies-showcase-card__title\">$movie->post_title</p>";
 			echo '</a>';
 			echo '</div>';
 		endforeach;
