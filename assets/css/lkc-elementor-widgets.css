@@ -559,3 +559,21 @@
     }
 }
 
+/*
+    Hero slider
+ */
+.hero-slider-container{
+    position: relative;
+}
+.hero-slider-wrapper{
+    display: flex !important;
+    width: 100%;
+}
+
+.hero-slider-image{
+    width: 40%;
+}
+.hero-slider-info{
+    width: 50%;
+}
+
