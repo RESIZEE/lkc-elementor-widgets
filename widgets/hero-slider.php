@@ -131,7 +131,8 @@ class Hero_Slider_Widget extends Widget_Base
     {
         $settings = $this->get_settings_for_display();
         $events = $this->get_latest_events($settings['number_of_slides']);
-
+        echo '<div class="hero-slider-controls">';
+        echo '</div>';
         echo '<div class="hero-slider-container">';
         foreach ($events as $event) {
             $this->card_html(
@@ -170,12 +171,14 @@ class Hero_Slider_Widget extends Widget_Base
             echo '</div>';
 
             echo '<div class="hero-slider-info">';
+                    echo '<div class="hero-slider-info__program" style="width: 200px">';
+                        echo $program->program_sticker();
+                    echo '</div>';
                 echo '<a href="' . $permalink . '" target="_blank" class="hero-slider-link">';
+                    echo '<div class="hero-slider-info__top">';
                     echo '<h2>' . $name . '</h2>';
-                        echo '<div class="hero-slider-info__program" style="width: 200px">';
-                            echo $program->program_sticker();
-                        echo '</div>';
                     echo '<p class="hero-slider-info__location"><i class="fas fa-map-marker-alt"></i> ' . $location . '</p>';
+                    echo '</div>';
                     echo '<p class="hero-slider-info__excerpt">'. $excerpt .'</p>';
                     echo '<p class="hero-slider-info__date-time">'.$date->format('d. F Y.').' u '. $time->format('H.i').'h</p>';
                 echo '</a>';
@@ -184,9 +187,10 @@ class Hero_Slider_Widget extends Widget_Base
     }
 
     /**
-     * Returns array of four latest events.
      * @param int $number_of_slides
+     *
      * @return array
+     * @throws \Exception
      */
     private function get_latest_events(int $number_of_slides): array
     {
@@ -230,42 +234,5 @@ class Hero_Slider_Widget extends Widget_Base
         }
 
         return $events;
-    }
-
-
-    /**
-     * Returns HTML for program sticker.
-     *
-     * @param stdClass $program
-     *
-     * @return void
-     */
-    private function program_sticker(stdClass $program): void
-    {
-        $program_icon_class = $this->program_icon_class($program->slug);
-
-        echo "<div class=\"hero-slider-info__program-sticker event-repertoire-card__program-sticker--$program->slug\">";
-        echo '<i class="fas fa-chevron-right"></i>';
-        echo "<span class=\"hero-slider-info__program-sticker__title\">$program->name</span>";
-        echo "<i class=\"fas $program_icon_class\"></i>";
-        echo '</div>';
-    }
-
-    /**
-     * Returns class needed for specific program.
-     *
-     * @param string $program_slug
-     *
-     * @return string
-     */
-    private function program_icon_class(string $program_slug): string
-    {
-        return match ($program_slug) {
-            'dramski-program' => 'fa-theater-masks',
-            'deciji-program' => 'fa-child',
-            'muzicki-program' => 'fa-music',
-            'knjizevni-program' => 'fa-book-open',
-            default => 'fa-question'
-        };
     }
 }

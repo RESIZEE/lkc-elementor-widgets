@@ -75,12 +75,12 @@ $jq(document).ready(function() {
     //Hero slick carouser
     $jq('.hero-slider-container').slick({
         infinite: true,
-        speed: 300,
+        speed: 900,
         slidesToShow: 1,
         autoplay: true,
-        autoplaySpeed: 1000,
+        autoplaySpeed: 5000,
         arrows: true,
-        appendArrows: $jq('.hero-slider-container'),
+        appendArrows: $jq('.hero-slider-controls'),
         prevArrow: '<button type="button" class="slick-prev"><i class="fa-solid fa-chevron-left"></i></button>',
         nextArrow: '<button type="button" class="slick-next"><i class="fa-solid fa-chevron-right"></i></button>',
 
