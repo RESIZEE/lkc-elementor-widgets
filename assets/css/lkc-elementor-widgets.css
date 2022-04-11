@@ -720,3 +720,7 @@ p.teams-widget-card__job_title {
 p.teams-widget-card__email {
     margin-top: 0.75rem;
 }
+
+p.teams-widget-card__email:hover {
+    color: #015eab;
+}
