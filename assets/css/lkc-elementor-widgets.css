@@ -351,55 +351,55 @@
     font-size: 12px;
 }
 
-.program-sticker--scenski-program {
+.program-sticker--scenski-program, .program-sticker--scenski-program:hover {
     background-color: #FF0000;
 }
 
-.program-sticker--deciji-program {
+.program-sticker--deciji-program, .program-sticker--deciji-program:hover {
     background-color: #FFAA00;
 }
 
-.program-sticker--muzicki-program {
+.program-sticker--muzicki-program, .program-sticker--muzicki-program:hover {
     background-color: #FF00FF;
 }
 
-.program-sticker--knjizevni-program {
+.program-sticker--knjizevni-program, .program-sticker--knjizevni-program:hover {
     background-color: #924205;
 }
 
-.program-sticker--likovni-program {
+.program-sticker--likovni-program, .program-sticker--likovni-program:hover {
     background-color: #00C2FF;
 }
 
-.program-sticker--tribinski-program {
+.program-sticker--tribinski-program, .program-sticker--tribinski-program:hover {
     background-color: #7B1717;
 }
 
-.program-sticker--izdavacki-program {
+.program-sticker--izdavacki-program, .program-sticker--izdavacki-program:hover {
     background-color: #FF8000;
 }
 
-.program-sticker--filmski-program {
+.program-sticker--filmski-program, .program-sticker--filmski-program:hover {
     background-color: #0044FF;
 }
 
-.program-sticker--amaterski-program {
+.program-sticker--amaterski-program, .program-sticker--amaterski-program:hover {
     background-color: #057A18;
 }
 
-.program-sticker--umetnost-fotografije {
+.program-sticker--umetnost-fotografije, .program-sticker--umetnost-fotografije:hover {
     background-color: #9100FF;
 }
 
-.program-sticker--projektni-program {
+.program-sticker--projektni-program, .program-sticker--projektni-program:hover {
     background-color: #017087;
 }
 
-.program-sticker--odnos-s-javnoscu {
+.program-sticker--odnos-s-javnoscu, .program-sticker--odnos-s-javnoscu:hover {
     background-color: #110F51;
 }
 
-.program-sticker--none {
+.program-sticker--none, .program-sticker--none:hover {
     background-color: darkslategray;
 }
 
@@ -537,10 +537,11 @@
 }
 
 @media screen and (max-width: 768px) {
-    .news-ticker__title{
+    .news-ticker__title {
         padding-top: .3rem;
         width: 20%;
     }
+
     .news-ticker__title h5 {
         font-size: .8rem;
     }
@@ -576,11 +577,11 @@
 /*
     Hero slider
  */
-.hero-slider-container{
+.hero-slider-container {
     position: relative;
 }
 
-.hero-slider-controls{
+.hero-slider-controls {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -592,8 +593,8 @@
 .hero-slider-controls .slick-next {
     position: absolute;
     top: 50%;
-    transform: translate(0,-50%);
-    background: rgba(0,0,0,0.4);
+    transform: translate(0, -50%);
+    background: rgba(0, 0, 0, 0.4);
     color: #fff;
     height: 70px;
     width: 45px;
@@ -608,88 +609,99 @@
 .hero-slider-controls .slick-prev:active,
 .hero-slider-controls .slick-next:active,
 .hero-slider-controls .slick-prev:focus,
-.hero-slider-controls .slick-next:focus{
-    border: 1px solid rgba(0,0,0,0.4);
-    color: rgba(0,0,0,0.4);
+.hero-slider-controls .slick-next:focus {
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    color: rgba(0, 0, 0, 0.4);
     background-color: transparent;
 }
 
-.hero-slider-controls .slick-prev{
+.hero-slider-controls .slick-prev {
     left: -75px;
 }
+
 .hero-slider-controls .slick-next {
     right: -75px;
 }
 
 
-.hero-slider-wrapper{
+.hero-slider-wrapper {
     display: flex !important;
     width: 100%;
     height: 500px;
 }
 
-.hero-slider-image{
+.hero-slider-image {
     width: 50%;
     height: 100%;
 
 }
-.hero-slider-image img{
+
+.hero-slider-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 0 20px;
 }
-.hero-slider-info{
+
+.hero-slider-info {
     width: 50%;
     height: 100%;
     padding: 3em 2em;
 }
 
-.hero-slider-info__program{
+.hero-slider-info__program {
     margin-bottom: .75rem;
 }
 
-.hero-slider-info h2{
+.hero-slider-info h2 {
     font-size: 30px;
 }
 
-.hero-slider-info a{
+.hero-slider-info a {
     color: #707070;
 }
 
-.hero-slider-info__top{
+.hero-slider-info__top {
     height: 200px;
 }
-.hero-slider-info__date-time{
+
+.hero-slider-info__date-time {
     position: absolute;
     bottom: 10%;
 }
 
 @media screen and (max-width: 992px) {
-    .hero-slider-info__date-time{
+    .hero-slider-info__date-time {
         top: 80%;
     }
-    .hero-slider-info{
+
+    .hero-slider-info {
         padding: 3em 0;
     }
-    .hero-slider-info h2{
+
+    .hero-slider-info h2 {
         font-size: 25px;
     }
-    .hero-slider-controls{
+
+    .hero-slider-controls {
         display: none;
     }
-    .hero-slider-wrapper{
+
+    .hero-slider-wrapper {
         flex-wrap: wrap;
         height: auto;
     }
-    .hero-slider-info__top{
+
+    .hero-slider-info__top {
         height: 180px;
     }
-    .hero-slider-image{
+
+    .hero-slider-image {
         width: 100%;
         height: 500px;
     }
-    .hero-slider-info{
+
+    .hero-slider-info {
         width: 100%;
     }
 }

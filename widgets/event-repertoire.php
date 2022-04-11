@@ -105,7 +105,7 @@ class Event_Repertoire_Widget extends Widget_Base {
 		echo '<div class="event-repertoire-container">';
 		echo ' <div class="event-repertoire-wrapper">';
 		foreach ( $events as $event ):
-			echo "<a href=\"$event->permalink\" target=\"_blank\" style=\"background: url('$event->img_url')\" class=\"event-repertoire-card event-border--{$event->program->slug}\">";
+			echo "<a href=\"$event->permalink\" style=\"background: url('$event->img_url')\" class=\"event-repertoire-card event-border--{$event->program->slug}\">";
 			$event->time_sticker();
 			echo '<div class="event-repertoire-card__program-sticker">';
 			$event->program->program_sticker();
@@ -135,7 +135,7 @@ class Event_Repertoire_Widget extends Widget_Base {
 		$event_objects = get_posts( $args );
 
 		foreach ( $event_objects as $event_object ) {
-			$events[] = new Event($event_object);
+			$events[] = new Event( $event_object );
 		}
 
 		return $events;

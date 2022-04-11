@@ -33,7 +33,7 @@ class Event {
 		$this->name      = $event_object->post_title;
 		$this->permalink = get_permalink( $event_object );
 		$this->location  = $location;
-		$this->excerpt = $event_object->post_excerpt ?: wp_trim_words($event_object->post_content, 25);
+		$this->excerpt   = $event_object->post_excerpt ?: wp_trim_words( $event_object->post_content, 25 );
 
 		$date_object = $event_object->date_of_event ? new \DateTime( $event_object->date_of_event ) : '';
 		$this->day   = $date_object ? $date_object->format( 'd' ) : '';
