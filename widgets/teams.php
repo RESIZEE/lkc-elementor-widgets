@@ -270,7 +270,7 @@ class Teams_Widget extends Widget_Base
 
         echo '<p class="teams-widget-card__job_title" style="font-style: italic; margin-top: 25px;">' . $job_title . '</p>';
 
-        echo '<p class="teams-widget-card__email">' . $email . '</p>';
+        echo '<p class="teams-widget-card__email"><i class="fa-solid fa-envelope"></i>' . $email . '</p>';
 
         echo '</div>';
 
