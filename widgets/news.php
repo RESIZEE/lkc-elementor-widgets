@@ -246,7 +246,7 @@ class News_Widget extends Widget_Base
     private function card_html($photo, $news_excerpt, $news_title, $news_permalink)
     {
         echo '<div class="news-widget-card">';
-        echo '<img src="' . $photo . '" class="news-widget__image">';
+        echo '<a href="' . $news_permalink . '"><img src="' . $photo . '" class="news-widget__image"></a>';
         echo '<p class="news-widget__title">' . $news_title . '</p>';
         echo '<div class="news-widget-description-container">';
         echo '<p class="news-widget__excerpt">' . wp_trim_words($news_excerpt, 20) . '</p>';
