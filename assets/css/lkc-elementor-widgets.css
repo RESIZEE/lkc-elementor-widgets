@@ -720,7 +720,7 @@ p.teams-widget-card__job_title {
 
 p.teams-widget-card__job_title,
 a.teams-widget-card__email {
-    color: #707070;
+    color: #707070 !important;
 }
 
 a.teams-widget-card__email:hover {
