@@ -694,4 +694,29 @@
     }
 }
 
+/*
+    Teams Widget Style
+ */
 
+.teams-widget-card {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+img.teams-widget-card__image {
+    object-fit: cover;
+    border-radius: 0 15px;
+    width: 200px;
+}
+
+h2.teams-widget-card__full_name {
+    margin-top: 0.75rem !important;
+}
+
+p.teams-widget-card__job_title {
+    margin-top: 0 !important;
+}
+
+p.teams-widget-card__email {
+    margin-top: 0.75rem;
+}

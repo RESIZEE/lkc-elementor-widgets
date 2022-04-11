@@ -300,7 +300,7 @@ class Teams_Widget extends Widget_Base
                 'full_name' => $post->full_name,
                 'job_title' => $post->job_title,
                 'email' => $post->email,
-                'image' => wp_get_attachment_image_url($photo_id, 'medium') ?: plugins_url('/assets/img/placeholder.png', LKC_PLUGIN_FILE),
+                'image' => wp_get_attachment_image_url($photo_id, 'medium') ?: plugins_url('/assets/img/teams-placeholder.png', LKC_PLUGIN_FILE),
             ];
         }
 
