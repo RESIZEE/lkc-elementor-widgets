@@ -715,10 +715,7 @@ h2.teams-widget-card__full_name {
 
 p.teams-widget-card__job_title {
     margin-top: 0 !important;
-}
-
-a.teams-widget-card__email {
-    margin-top: 0.75rem !important;
+    margin-bottom: 0.75rem;
 }
 
 a.teams-widget-card__email:hover {
