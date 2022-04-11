@@ -718,6 +718,11 @@ p.teams-widget-card__job_title {
     margin-bottom: 0.75rem;
 }
 
+p.teams-widget-card__job_title,
+a.teams-widget-card__email {
+    color: #707070;
+}
+
 a.teams-widget-card__email:hover {
     color: #015eab !important;
 }

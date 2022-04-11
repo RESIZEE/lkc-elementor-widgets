@@ -262,18 +262,12 @@ class Teams_Widget extends Widget_Base
     private function card_html($full_name, $job_title, $email, $image)
     {
         echo '<div class="col-sm-6 col-xl-3">';
-
         echo '<div class="teams-widget-card">';
         echo '<img src="' . $image . '" alt="Image of ' . $full_name . '" class="teams-widget-card__image">';
-
-        echo '<h2 class="teams-widget-card__full_name" style="margin-top: 25px;">' . $full_name . '</h2>';
-
-        echo '<p class="teams-widget-card__job_title" style="font-style: italic; margin-top: 25px;">' . $job_title . '</p>';
-
-        echo '<a href="mailto:' . $email . '" class="teams-widget-card__email"><i class="fa-solid fa-envelope"></i>&nbsp;' . $email . '</a>';
-
+        echo '<h2 class="teams-widget-card__full_name">' . $full_name . '</h2>';
+        echo '<p class="teams-widget-card__job_title">' . $job_title . '</p>';
+        echo '<i class="fa-solid fa-envelope"></i><a href="mailto:' . $email . '" class="teams-widget-card__email">' . $email . '</a>';
         echo '</div>';
-
         echo '</div>';
     }
 
