@@ -15,6 +15,7 @@ use Elementor\Hero_Slider_Widget;
 use Elementor\News_Ticker_Widget;
 use Elementor\News_Widget;
 use Elementor\Event_Repertoire_Widget;
+use Elementor\Teams_Widget;
 use Elementor\Widgets_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -224,6 +225,7 @@ class Lkc_Elementor_Widgets {
 		require_once( 'widgets/event-repertoire.php' );
 		require_once( 'widgets/news-ticker.php' );
 		require_once( 'widgets/hero-slider.php' );
+        require_once( 'widgets/teams.php' );
 	}
 
 	/**
@@ -241,6 +243,7 @@ class Lkc_Elementor_Widgets {
 		$widget_manager->register( new Event_Repertoire_Widget() );
 		$widget_manager->register( new News_Ticker_Widget() );
 		$widget_manager->register( new Hero_Slider_Widget() );
+        $widget_manager->register( new Teams_Widget() );
 	}
 
 	/**
