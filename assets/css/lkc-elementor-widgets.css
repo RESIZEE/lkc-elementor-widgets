@@ -279,55 +279,55 @@
     }
 }
 
-.event-repertoire-card--scenski-program {
+.event-border--scenski-program {
     border: 2px solid #FF0000;
 }
 
-.event-repertoire-card--deciji-program {
+.event-border--deciji-program {
     border: 2px solid #FFAA00;
 }
 
-.event-repertoire-card--muzicki-program {
+.event-border--muzicki-program {
     border: 2px solid #FF00FF;
 }
 
-.event-repertoire-card--knjizevni-program {
+.event-border--knjizevni-program {
     border: 2px solid #924205;
 }
 
-.event-repertoire-card--likovni-program {
+.event-border--likovni-program {
     border: 2px solid #00C2FF;
 }
 
-.event-repertoire-card--tribinski-program {
+.event-border--tribinski-program {
     border: 2px solid #7B1717;
 }
 
-.event-repertoire-card--izdavacki-program {
+.event-border--izdavacki-program {
     border: 2px solid #FF8000;
 }
 
-.event-repertoire-card--filmski-program {
+.event-border--filmski-program {
     border: 2px solid #0044FF;
 }
 
-.event-repertoire-card--amaterski-program {
+.event-border--amaterski-program {
     border: 2px solid #057A18;
 }
 
-.event-repertoire-card--umetnost-fotografije {
+.event-border--umetnost-fotografije {
     border: 2px solid #9100FF;
 }
 
-.event-repertoire-card--projektni-program {
+.event-border--projektni-program {
     border: 2px solid #017087;
 }
 
-.event-repertoire-card--odnos-s-javnoscu {
+.event-border--odnos-s-javnoscu {
     border: 2px solid #110F51;
 }
 
-.event-repertoire-card--none {
+.event-border--none {
     border: 2px solid darkslategray;
 }
 
@@ -407,14 +407,14 @@
     text-transform: uppercase;
 }
 
-.event-repertoire-card__time-sticker {
+.time-sticker {
     position: absolute;
     right: 20px;
     top: 0;
     width: 67px;
 }
 
-.event-repertoire-card__time-sticker__date-wrapper {
+.time-sticker__date-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -425,16 +425,16 @@
     padding: 5px 0;
 }
 
-.event-repertoire-card__time-sticker__date-wrapper__month {
+.time-sticker__date-wrapper__month {
     font-size: 13px;
 }
 
-.event-repertoire-card__time-sticker__date-wrapper__day {
+.time-sticker__date-wrapper__day {
     font-size: 20px;
     margin-top: -5px;
 }
 
-.event-repertoire-card__time-sticker__time-wrapper {
+.time-sticker__time-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -444,15 +444,15 @@
     padding: 0 5px;
 }
 
-.event-repertoire-card__name_location {
+.name-location {
     color: white;
 }
 
-.event-repertoire-card__name_location__name {
+.name-location__name {
     color: white;
 }
 
-.event-repertoire-card__name_location__location {
+.name-location__location {
     display: flex;
     align-items: center;
     gap: 8px;

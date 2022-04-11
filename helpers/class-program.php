@@ -4,25 +4,8 @@ namespace Lkc\Helpers\Program;
 
 class Program {
 
-	public function __construct( private string $name, private string $slug ) {}
 
-	/**
-	 * Getter method for name property
-	 *
-	 * @return string
-	 */
-	public function getName(): string {
-		return $this->name;
-	}
-
-	/**
-	 * Getter method for name property
-	 *
-	 * @return string
-	 */
-	public function getSlug(): string {
-		return $this->slug;
-	}
+	public function __construct( public string $name, public string $slug ) {}
 
 	/**
 	 * Returns HTML for program sticker.

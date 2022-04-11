@@ -189,6 +189,7 @@ class Lkc_Elementor_Widgets {
 	 * @return void
 	 */
 	public function require_helper_classes() {
+		require_once( 'helpers/class-event.php' );
 		require_once( 'helpers/class-program.php' );
 	}
 
