@@ -40,38 +40,6 @@ $jq(document).ready(function() {
             $jq('.news-widget__count .current').text(currentSlide + slick.options.slidesToShow);
         });
 
-    // Cinema movies slick carousel
-    $jq('.cinema-movies-showcase-wrapper')
-        .slick({
-            responsive: [
-                {
-                    breakpoint: 2000,
-                    settings: "unslick",
-                },
-                {
-                    breakpoint: 1600,
-                    settings: "unslick",
-                },
-                {
-                    breakpoint: 1024,
-                    settings: "unslick",
-                },
-                {
-                    breakpoint: 600,
-                    settings: "unslick",
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        arrows: false,
-                        centerMode: true,
-                        slidesToShow: 1,
-                        centerPadding: "30px",
-                    },
-                },
-            ],
-        });
-
     //Hero slick carouser
     $jq('.hero-slider-container').slick({
         infinite: true,
