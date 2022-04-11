@@ -281,7 +281,7 @@ class Teams_Widget extends Widget_Base
         $args = array(
             'post_type' => "team",
             'numberposts' => -1,
-            'orderby' => 'date',
+            'orderby' => 'menu_order',
             'order' => 'ASC',
         );
 
