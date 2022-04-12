@@ -403,6 +403,59 @@
     background-color: darkslategray;
 }
 
+
+.program-color--scenski-program {
+    color: #FF0000;
+}
+
+.program-color--deciji-program {
+    color: #FFAA00;
+}
+
+.program-color--muzicki-program {
+    color: #FF00FF;
+}
+
+.program-color--knjizevni-program {
+    color: #924205;
+}
+
+.program-color--likovni-program {
+    color: #00C2FF;
+}
+
+.program-color--tribinski-program {
+    color: #7B1717;
+}
+
+.program-color--izdavacki-program {
+    color: #FF8000;
+}
+
+.program-color--filmski-program {
+    color: #0044FF;
+}
+
+.program-color--amaterski-program {
+    color: #057A18;
+}
+
+.program-color--umetnost-fotografije {
+    color: #9100FF;
+}
+
+.program-color--projektni-program {
+    color: #017087;
+}
+
+.program-color--odnos-s-javnoscu {
+    color: #110F51;
+}
+
+.program-color--none {
+    color: darkslategray;
+}
+
 .program-sticker__title {
     text-transform: uppercase;
 }
