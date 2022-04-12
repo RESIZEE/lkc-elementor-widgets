@@ -420,6 +420,7 @@ class Card_Preview_Widgets extends Widget_Base {
 	 */
 	private function image_card_html( $card_link_url, $background_img_url, $card_title ) {
 		echo "<a href=\"$card_link_url\" target=\"_blank\" style=\"background: url('$background_img_url')\" class=\"card-preview-card\">";
+		echo '<div class="card-overlay"></div>';
 		echo "<p class=\"card-preview-card__title\">$card_title</p>";
 		echo '</a>';
 	}
