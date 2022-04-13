@@ -2,6 +2,7 @@
 
 namespace Elementor;
 
+use Lkc\Helpers\Program\Event;
 use Lkc\Helpers\Program\Program;
 use stdClass;
 
@@ -135,54 +136,38 @@ class Hero_Slider_Widget extends Widget_Base
         echo '</div>';
         echo '<div class="hero-slider-container">';
         foreach ($events as $event) {
-            $this->card_html(
-                $event->name,
-                $event->permalink,
-                $event->img_url,
-                $event->location,
-                $event->time,
-                $event->date,
-                $event->program,
-                $event->excerpt,
-            );
+            $this->card_html($event);
         }
         echo '</div>';
     }
 
     /**
-     * @param $name
-     * @param $permalink
-     * @param $image
-     * @param $location
-     * @param $time
-     * @param $date
-     * @param $program
-     * @param $excerpt
+     * @param $event
      *
      * @return void
      */
-    private function card_html($name, $permalink, $image, $location, $time, $date, $program, $excerpt): void
+    private function card_html($event): void
     {
         echo ' <div class="hero-slider-wrapper">';
-            echo '<div class="hero-slider-image">';
-                echo '<a href="' . $permalink . '" target="_blank" class="hero-slider-link">';
-                    echo '<img src="' . $image . '">';
-                echo '</a>';
-            echo '</div>';
+        echo '<div class="hero-slider-image">';
+        echo '<a href="' . $event->permalink . '" target="_blank" class="hero-slider-link">';
+        echo '<img src="' . $event->img_url . '">';
+        echo '</a>';
+        echo '</div>';
 
-            echo '<div class="hero-slider-info">';
-                    echo '<div class="hero-slider-info__program" style="width: 200px">';
-                        echo $program->program_sticker();
-                    echo '</div>';
-                echo '<a href="' . $permalink . '" target="_blank" class="hero-slider-link">';
-                    echo '<div class="hero-slider-info__top">';
-                    echo '<h2>' . $name . '</h2>';
-                    echo '<p class="hero-slider-info__location"><i class="fas fa-map-marker-alt"></i> ' . $location . '</p>';
-                    echo '</div>';
-                    echo '<p class="hero-slider-info__excerpt">'. $excerpt .'</p>';
-                    echo '<p class="hero-slider-info__date-time">'.$date->format('d. F Y.').' u '. $time->format('H.i').'h</p>';
-                echo '</a>';
-            echo '</div>';
+        echo '<div class="hero-slider-info">';
+        echo '<div class="hero-slider-info__program" style="width: 200px">';
+        echo $event->program->program_sticker();
+        echo '</div>';
+        echo '<a href="' . $event->permalink . '" target="_blank" class="hero-slider-link">';
+        echo '<div class="hero-slider-info__top">';
+        echo '<h2>' . $event->name . '</h2>';
+        echo '<p class="hero-slider-info__location"><i class="fas fa-map-marker-alt"></i> ' . $event->location . '</p>';
+        echo '</div>';
+        echo '<p class="hero-slider-info__excerpt">' . $event->excerpt . '</p>';
+        echo '<p class="hero-slider-info__date-time">' . $event->day . '. ' . $event->get_month_long_name() . ' ' . $event->year . '. u ' . $event->time . 'h</p>';
+        echo '</a>';
+        echo '</div>';
         echo '</div>';
     }
 
@@ -204,33 +189,9 @@ class Hero_Slider_Widget extends Widget_Base
         );
 
         $event_objects = get_posts($args);
+
         foreach ($event_objects as $event_object) {
-            $event = new stdClass();
-
-            $event_terms = get_the_terms( $event_object, 'program' );
-            // Getting random index of an term so we can display different one each time.
-            $random_terms_index = is_array( $event_terms ) ? rand( 0, count( $event_terms ) - 1 ) : 0;
-            $program_name       = $event_terms ? $event_terms[ $random_terms_index ]->name : 'Nekategorizovano';
-            $program_slug       = $event_terms ? $event_terms[ $random_terms_index ]->slug : 'none';
-            $event->program     = new Program( $program_name, $program_slug );
-
-            $location_field_object = get_field_object( 'location', $event_object->ID ) ?: [];
-            $location_field_key    = array_key_exists( 'value', $location_field_object ) ? $location_field_object['value'] : '';
-            $location              = array_key_exists( 'choices', $location_field_object ) ? $location_field_object['choices'][ $location_field_key ] : '';
-
-            $event->img_url   = get_the_post_thumbnail_url( $event_object ) ?: plugins_url( '/assets/img/placeholder.png', LKC_PLUGIN_FILE );
-            $event->name      = $event_object->post_title;
-            $event->permalink = get_permalink( $event_object );
-            $event->excerpt = $event_object->post_excerpt ?: wp_trim_words($event_object->post_content, 25);
-
-            $event->location = $location;
-            $event->date = new \DateTime($event_object->date_of_event);
-
-            $event->time = new \DateTime($event_object->time_of_event);
-
-
-
-            $events[] = $event;
+            $events[] = new Event($event_object);
         }
 
         return $events;
