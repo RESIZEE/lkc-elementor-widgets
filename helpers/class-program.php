@@ -13,13 +13,13 @@ class Program {
 	 * @return void
 	 */
 	public function program_sticker(): void {
-        echo '<a href="' . ($this->slug != 'none' ? '/' . $this->slug : '#') . '">';
+        //echo '<a href="' . ($this->slug != 'none' ? '/' . $this->slug : '#') . '">';
 		echo "<div class=\"program-sticker program-sticker--$this->slug\">";
 		echo '<i class="fas fa-chevron-right"></i>';
 		echo "<span class=\"program-sticker__title\">$this->name</span>";
 		echo "<i class=\"fas {$this->program_icon_class( $this->slug )}\"></i>";
 		echo '</div>';
-        echo '</a>';
+        //echo '</a>';
 	}
 
 	/**
