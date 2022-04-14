@@ -264,7 +264,7 @@ class News_Widget extends Widget_Base
 
         foreach (get_posts($args) as $post) {
             $news[] = [
-                'photo' => wp_get_attachment_image_url(get_post_thumbnail_id($post->ID), 'medium'),
+                'photo' => wp_get_attachment_image_url(get_post_thumbnail_id($post->ID), 'medium') ?: plugins_url('/assets/img/placeholder.png', LKC_PLUGIN_FILE),
                 'news_title' => $post->post_title,
                 'news_excerpt' => $post->post_content,
                 'news_permalink' => get_permalink($post->ID)
