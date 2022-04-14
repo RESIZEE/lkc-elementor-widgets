@@ -291,7 +291,7 @@ class Teams_Widget extends Widget_Base
             $photo_id = $post->image;
 
             $teams[] = [
-                'full_name' => $post->full_name,
+                'full_name' => $post->post_title,
                 'job_title' => $post->job_title,
                 'email' => $post->email,
                 'image' => wp_get_attachment_image_url($photo_id, 'medium') ?: plugins_url('/assets/img/teams_placeholder.png', LKC_PLUGIN_FILE),
