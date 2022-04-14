@@ -150,7 +150,7 @@ class Hero_Slider_Widget extends Widget_Base
     {
         echo ' <div class="hero-slider-wrapper">';
         echo '<div class="hero-slider-image">';
-        echo '<a href="' . $event->permalink . '" target="_blank" class="hero-slider-link">';
+        echo '<a href="' . $event->permalink . '" class="hero-slider-link">';
         echo '<img src="' . $event->img_url . '">';
         echo '</a>';
         echo '</div>';
