@@ -125,12 +125,27 @@ class Event_Repertoire_Widget extends Widget_Base {
 	 * @return Event[]
 	 */
 	private function get_four_latest_events(): array {
-		$events = [];
+		$events = array();
 		$args   = array(
-			'post_type'      => 'event',
-			'post_status'    => 'publish',
-			'order'          => 'DESC',
-			'orderby'        => 'publish_date',
+			'post_type'   => 'event',
+			'post_status' => 'publish',
+
+			'meta_query'     => array(
+				'order_by_date_clause' => array(
+					'key'     => 'date_of_event',
+					'compare' => 'EXISTS',
+					'type'    => 'DATE',
+				),
+				'order_by_time_clause' => array(
+					'key'     => 'time_of_event',
+					'compare' => 'EXISTS',
+					'type'    => 'TIME',
+				),
+			),
+			'orderby'        => array(
+				'order_by_date_clause' => 'ASC',
+				'order_by_time_clause' => 'ASC',
+			),
 			'posts_per_page' => 4,
 		);
 
