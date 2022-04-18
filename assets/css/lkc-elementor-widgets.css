@@ -169,7 +169,8 @@ img.card__image {
 
 .news-widget-card:nth-child(5),
 .news-widget-card:nth-child(8),
-.news-widget-card:nth-child(11) {
+.news-widget-card:nth-child(11),
+.news-widget-card:nth-child(14) {
     border-right: 2px solid #707070;
     border-left: 2px solid #707070;
 }
