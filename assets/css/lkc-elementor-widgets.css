@@ -16,6 +16,20 @@
     border-radius: 0 15px !important;
 }
 
+img.card__image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100%;
+    border-radius: 0 15px !important;
+    transition: all 0.5s ease;
+}
+
 /**
     Cinema Movies Showcase Widget Styles
  */
@@ -122,6 +136,10 @@
     overflow: hidden;
     border-radius: 0 15px;
     width: 400px;
+}
+
+.card-preview-card:hover img.card__image {
+    transform: scale(1.3);
 }
 
 .card-preview-card__play_img_overlay {
@@ -277,9 +295,6 @@
     width: 310px;
     height: 230px;
     position: relative;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -287,6 +302,10 @@
     padding: 10px 8px;
     overflow: hidden;
     border-radius: 0 15px;
+}
+
+.event-repertoire-card:hover img.card__image {
+    transform: scale(1.3);
 }
 
 @media only screen and (max-width: 672px) {

@@ -402,7 +402,8 @@ class Card_Preview_Widgets extends Widget_Base {
 
 		echo ' <div class="card-preview-card-wrapper">';
 
-		echo "<a href=\"$video_url\" target=\"_blank\" style=\"background: url('$background_img_url')\" class=\"card-preview-card\">";
+		echo "<a href=\"$video_url\" target=\"_blank\" class=\"card-preview-card\">";
+		echo "<img src=\"$background_img_url\" alt=\"Cover image for video at: $video_url \" class=\"card__image\">";
 		echo "<img src=\"$play_button_img_url\" class=\"card-preview-card__play_img_overlay\" alt=\"Play button\"/>";
 		echo '</a>';
 
@@ -419,7 +420,8 @@ class Card_Preview_Widgets extends Widget_Base {
 	 * @return void
 	 */
 	private function image_card_html( $card_link_url, $background_img_url, $card_title ) {
-		echo "<a href=\"$card_link_url\" target=\"_blank\" style=\"background: url('$background_img_url')\" class=\"card-preview-card\">";
+		echo "<a href=\"$card_link_url\" target=\"_blank\" class=\"card-preview-card\">";
+		echo "<img src=\"$background_img_url\" alt=\"Cover image for link at: $card_link_url \" class=\"card__image\">";
 		echo '<div class="card-overlay"></div>';
 		echo "<p class=\"card-preview-card__title\">$card_title</p>";
 		echo '</a>';

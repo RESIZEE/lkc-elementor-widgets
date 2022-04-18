@@ -105,7 +105,8 @@ class Event_Repertoire_Widget extends Widget_Base {
 		echo '<div class="event-repertoire-container">';
 		echo ' <div class="event-repertoire-wrapper">';
 		foreach ( $events as $event ):
-			echo "<a href=\"$event->permalink\" style=\"background: url('$event->img_url')\" class=\"event-repertoire-card event-border--{$event->program->slug}\">";
+			echo "<a href=\"$event->permalink\" class=\"event-repertoire-card event-border--{$event->program->slug}\">";
+			echo "<img src=\"$event->img_url\" alt=\"Image of $event->name event\" class=\"card__image\">";
 			echo '<div class="card-overlay"></div>';
 			$event->time_sticker();
 			echo '<div class="event-repertoire-card__program-sticker">';
