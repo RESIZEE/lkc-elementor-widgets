@@ -252,12 +252,14 @@ class Teams_Widget extends Widget_Base {
 	 * @return void
 	 */
 	private function card_html( string $full_name, string $job_title, string $email, string $image ) {
-		echo '<div class="col-sm-6 col-xl-3">';
+		$full_name_slug = sanitize_title( $full_name );
+
+		echo "<div id=\"$full_name_slug\" class=\"col-sm-6 col-xl-3\">";
 		echo '<div class="teams-widget-card">';
-		echo '<img src="' . $image . '" alt="Image of ' . $full_name . '" class="teams-widget-card__image">';
-		echo '<h2 class="teams-widget-card__full_name">' . $full_name . '</h2>';
-		echo '<p class="teams-widget-card__job_title">' . $job_title . '</p>';
-		echo '<i class="fa-solid fa-envelope"></i><a href="mailto:' . $email . '" class="teams-widget-card__email">&nbsp;' . $email . '</a>';
+		echo "<img src=\"$image\" alt=\"Image of $full_name\" class=\"teams-widget-card__image\">";
+		echo "<h2 class=\teams-widget-card__full_name\">$full_name</h2>";
+		echo "<p class=\"teams-widget-card__job_title\">$job_title</p>";
+		echo "<i class=\"fa-solid fa-envelope\"></i><a href=\"mailto:$email\" class=\"teams-widget-card__email\">&nbsp;$email</a>";
 		echo '</div>';
 		echo '</div>';
 	}
