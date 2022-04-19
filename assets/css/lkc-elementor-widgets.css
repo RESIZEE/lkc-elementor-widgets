@@ -746,6 +746,16 @@ img.card__image {
     margin-bottom: .75rem;
 }
 
+.hero-slider-info__program .program-sticker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 8px;
+    color: white;
+    font-size: 12px;
+    background-color: #015FAA;
+}
+
 .hero-slider-info h2 {
     font-size: 30px;
 }
