@@ -133,7 +133,8 @@ class Event_Repertoire_Widget extends Widget_Base {
 			'meta_query'     => array(
 				'order_by_date_clause' => array(
 					'key'     => 'date_of_event',
-					'compare' => 'EXISTS',
+					'compare' => '>=',
+					'value'   => date( 'Y-m-d' ),
 					'type'    => 'DATE',
 				),
 				'order_by_time_clause' => array(
