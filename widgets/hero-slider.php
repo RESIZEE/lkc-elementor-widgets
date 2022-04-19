@@ -108,12 +108,22 @@ class Hero_Slider_Widget extends Widget_Base
         );
 
         $this->add_control(
-            'number_of_slides',
+            'number_of_events',
             array(
-                'label' => esc_html__('Number of slides', 'lkc-elementor-widgets'),
+                'label' => esc_html__('Number of events', 'lkc-elementor-widgets'),
                 'type' => Controls_Manager::NUMBER,
                 'placeholder' => esc_html__('#', 'lkc-elementor-widgets'),
-                'default' => '10',
+                'default' => '5',
+            )
+        );
+
+        $this->add_control(
+            'number_of_news',
+            array(
+                'label' => esc_html__('Number of news', 'lkc-elementor-widgets'),
+                'type' => Controls_Manager::NUMBER,
+                'placeholder' => esc_html__('#', 'lkc-elementor-widgets'),
+                'default' => '5',
             )
         );
 
@@ -131,12 +141,21 @@ class Hero_Slider_Widget extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings_for_display();
-        $events = $this->get_latest_events($settings['number_of_slides']);
+        $events = $this->get_latest_events($settings['number_of_events']);
+        $news = $this->get_latest_news($settings['number_of_news']);
         echo '<div class="hero-slider-controls">';
         echo '</div>';
         echo '<div class="hero-slider-container">';
         foreach ($events as $event) {
             $this->card_html($event);
+        }
+        foreach ($news as $news_object) {
+            $this->card_html_news(
+                $news_object['news_title'],
+                $news_object['news_excerpt'],
+                $news_object['news_permalink'],
+                $news_object['news_image'],
+            );
         }
         echo '</div>';
     }
@@ -171,21 +190,63 @@ class Hero_Slider_Widget extends Widget_Base
         echo '</div>';
     }
 
+    private function card_html_news($title, $excerpt, $permalink, $image ) : void
+    {
+        echo ' <div class="hero-slider-wrapper">';
+        echo '<div class="hero-slider-image">';
+        echo '<a href="' . $permalink . '" class="hero-slider-link">';
+        echo '<img src="' . $image . '">';
+        echo '</a>';
+        echo '</div>';
+
+        echo '<div class="hero-slider-info">';
+        echo '<div class="hero-slider-info__program" style="width: 120px">';
+        echo "<div class=\"program-sticker\">";
+        echo '<i class="fas fa-chevron-right"></i>';
+        echo "<span class=\"program-sticker__title\">NOVOSTI</span>";
+        echo "<i class=\"fa-solid fa-newspaper\"></i>";
+        echo '</div>';
+        echo '</div>';
+        echo '<a href="' . $permalink . '" target="_blank" class="hero-slider-link">';
+        echo '<div class="hero-slider-info__top">';
+        echo '<h2>' . $title . '</h2>';
+        echo '</div>';
+        echo '<p class="hero-slider-info__excerpt">' . $excerpt . '</p>';
+        echo '</a>';
+        echo '</div>';
+        echo '</div>';
+    }
     /**
-     * @param int $number_of_slides
+     * @param int $number_of_events
      *
      * @return array
      * @throws \Exception
      */
-    private function get_latest_events(int $number_of_slides): array
+    private function get_latest_events(int $number_of_events): array
     {
         $events = [];
         $args = array(
-            'post_type' => 'event',
+            'post_type'   => 'event',
             'post_status' => 'publish',
-            'order' => 'DESC',
-            'orderby' => 'publish_date',
-            'posts_per_page' => $number_of_slides,
+
+            'meta_query'     => array(
+                'order_by_date_clause' => array(
+                    'key'     => 'date_of_event',
+                    'compare' => 'EXISTS',
+                    'type'    => 'DATE',
+                ),
+                'order_by_time_clause' => array(
+                    'key'     => 'time_of_event',
+                    'compare' => 'EXISTS',
+                    'type'    => 'TIME',
+                ),
+            ),
+            'orderby'        => array(
+                'order_by_date_clause' => 'ASC',
+                'order_by_time_clause' => 'ASC',
+            ),
+
+            'posts_per_page' => $number_of_events,
         );
 
         $event_objects = get_posts($args);
@@ -195,5 +256,35 @@ class Hero_Slider_Widget extends Widget_Base
         }
 
         return $events;
+    }
+
+
+    /**
+     * @param int $number_of_news
+     *
+     * @return array
+     */
+    private function get_latest_news(int $number_of_news): array
+    {
+        $news = [];
+        $args = array(
+            'post_type' => 'post',
+            'post_status' => 'publish',
+            'meta_key'     => 'hero_news',
+            'meta_value' => true,
+            'orderby' => 'publish_date',
+            'order' => 'DESC',
+            'posts_per_page' => $number_of_news,
+        );
+
+        foreach (get_posts($args) as $news_object){
+            $news[] = [
+                'news_title' => $news_object->post_title,
+                'news_permalink' => get_permalink($news_object->ID),
+                'news_image' => get_the_post_thumbnail_url( $news_object ) ?: plugins_url( '/assets/img/placeholder.png', LKC_PLUGIN_FILE ),
+                'news_excerpt' => $news_object->post_excerpt ?: wp_trim_words( $news_object->post_content, 25 ),
+            ];
+        }
+        return $news;
     }
 }
