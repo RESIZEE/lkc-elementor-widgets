@@ -150,15 +150,15 @@ class News_Ticker_Widget extends Widget_Base
     }
 
 
-    /**
-     * Echos HTML needed to create single card.
-     *
-     * @param $news_title
-     * @param $news_permalink
-     *
-     * @return void
-     */
-    private function card_html($news_title, $news_permalink)
+	/**
+	 * Echos HTML needed to create single card.
+	 *
+	 * @param string $news_title
+	 * @param string $news_permalink
+	 *
+	 * @return void
+	 */
+    private function card_html(string $news_title, string $news_permalink)
     {
         echo ' <div class="news-ticker__item">';
         echo '<a href="'. $news_permalink .'">'. $news_title .' <span class="news-ticker__item-read-more">saznaj više...</span></a>';

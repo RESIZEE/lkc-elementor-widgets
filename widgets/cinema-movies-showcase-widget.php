@@ -88,8 +88,7 @@ class Cinema_Movies_Showcase_Widget extends Widget_Base {
 	 * @since 1.0.0
 	 * @access protected
 	 */
-	protected function register_controls() {
-	}
+	protected function register_controls() {}
 
 	/**
 	 * Render Cinema Movies Showcase widget output on the frontend.

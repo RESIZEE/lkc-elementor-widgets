@@ -397,7 +397,7 @@ class Card_Preview_Widgets extends Widget_Base {
 	 *
 	 * @return void
 	 */
-	private function video_card_html( $video_url, $background_img_url, $card_title ) {
+	private function video_card_html( string $video_url, string $background_img_url, string $card_title ) {
 		$play_button_img_url = plugins_url( '/assets/img/play-button.svg', LKC_PLUGIN_FILE );
 
 		echo ' <div class="card-preview-card-wrapper">';
@@ -419,7 +419,7 @@ class Card_Preview_Widgets extends Widget_Base {
 	 *
 	 * @return void
 	 */
-	private function image_card_html( $card_link_url, $background_img_url, $card_title ) {
+	private function image_card_html( string $card_link_url, string $background_img_url, string $card_title ) {
 		echo "<a href=\"$card_link_url\" target=\"_blank\" class=\"card-preview-card\">";
 		echo "<img src=\"$background_img_url\" alt=\"Cover image for link at: $card_link_url \" class=\"card__image\">";
 		echo '<div class="card-overlay"></div>';
