@@ -207,10 +207,10 @@ class Lkc_Elementor_Widgets {
 		add_action( 'elementor/widgets/widgets_registered', [ $this, 'register_widgets' ] );
 
 		// Register Basic Widget Styles
-		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'enqueue_widget_styles' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_widget_styles' ] );
 
 		// Register Basic Widget Scripts
-		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'enqueue_widget_scripts' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_widget_scripts' ] );
 	}
 
 	/**
