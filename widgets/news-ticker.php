@@ -132,7 +132,7 @@ class News_Ticker_Widget extends Widget_Base
         echo '<div class="news-ticker-container">';
 
             echo '<div class="news-ticker__title">';
-            echo '<h5>Novosti</h5>';
+            echo '<h5>'.__('Новости', 'resize').'</h5>';
             echo '</div>';
 
             echo '<div class="news-ticker__wrap">';
@@ -161,7 +161,7 @@ class News_Ticker_Widget extends Widget_Base
     private function card_html(string $news_title, string $news_permalink)
     {
         echo ' <div class="news-ticker__item">';
-        echo '<a href="'. $news_permalink .'">'. $news_title .' <span class="news-ticker__item-read-more">saznaj više...</span></a>';
+        echo '<a href="'. $news_permalink .'">'. $news_title .' <span class="news-ticker__item-read-more">'.__('сазнај више...', 'resize').'</span></a>';
         echo '</div>';
     }
 
