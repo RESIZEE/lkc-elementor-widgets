@@ -21,7 +21,7 @@ class Event {
 		$event_terms = get_the_terms( $event_object, 'program' );
 		// Getting random index of an term so we can display different one each time.
 		$random_terms_index = is_array( $event_terms ) ? rand( 0, count( $event_terms ) - 1 ) : 0;
-		$program_name       = $event_terms ? $event_terms[ $random_terms_index ]->name : 'Nekategorizovano';
+		$program_name       = $event_terms ? $event_terms[ $random_terms_index ]->name : __('Некатегоризовано', 'lkc-elementor-widgets');
 		$program_slug       = $event_terms ? $event_terms[ $random_terms_index ]->slug : 'none';
 		$this->program      = new Program( $program_name, $program_slug );
 
@@ -76,33 +76,33 @@ class Event {
 
 		return $short ?
 			array(
-				1  => __( 'Jan', 'lkc-elementor-widgets' ),
-				2  => __( 'Feb', 'lkc-elementor-widgets' ),
-				3  => __( 'Mar', 'lkc-elementor-widgets' ),
-				4  => __( 'Apr', 'lkc-elementor-widgets' ),
-				5  => __( 'Maj', 'lkc-elementor-widgets' ),
-				6  => __( 'Jun', 'lkc-elementor-widgets' ),
-				7  => __( 'Jul', 'lkc-elementor-widgets' ),
-				8  => __( 'Avg', 'lkc-elementor-widgets' ),
-				9  => __( 'Sep', 'lkc-elementor-widgets' ),
-				10 => __( 'Okt', 'lkc-elementor-widgets' ),
-				11 => __( 'Nov', 'lkc-elementor-widgets' ),
-				12 => __( 'Dec', 'lkc-elementor-widgets' ),
+				1  => __( 'Јан', 'lkc-elementor-widgets' ),
+				2  => __( 'Феб', 'lkc-elementor-widgets' ),
+				3  => __( 'Мар', 'lkc-elementor-widgets' ),
+				4  => __( 'Апр', 'lkc-elementor-widgets' ),
+				5  => __( 'Мај', 'lkc-elementor-widgets' ),
+				6  => __( 'Јун', 'lkc-elementor-widgets' ),
+				7  => __( 'Јул', 'lkc-elementor-widgets' ),
+				8  => __( 'Авг', 'lkc-elementor-widgets' ),
+				9  => __( 'Сеп', 'lkc-elementor-widgets' ),
+				10 => __( 'Окт', 'lkc-elementor-widgets' ),
+				11 => __( 'Нов', 'lkc-elementor-widgets' ),
+				12 => __( 'Дец', 'lkc-elementor-widgets' ),
 			)[ $monthIndex ]
 			:
 			array(
-				1  => __( 'Januar', 'lkc-elementor-widgets' ),
-				2  => __( 'Februar', 'lkc-elementor-widgets' ),
-				3  => __( 'Mart', 'lkc-elementor-widgets' ),
-				4  => __( 'April', 'lkc-elementor-widgets' ),
-				5  => __( 'Maj', 'lkc-elementor-widgets' ),
-				6  => __( 'Jun', 'lkc-elementor-widgets' ),
-				7  => __( 'Jul', 'lkc-elementor-widgets' ),
-				8  => __( 'Avgust', 'lkc-elementor-widgets' ),
-				9  => __( 'Septembar', 'lkc-elementor-widgets' ),
-				10 => __( 'Oktobar', 'lkc-elementor-widgets' ),
-				11 => __( 'Novembar', 'lkc-elementor-widgets' ),
-				12 => __( 'Decembar', 'lkc-elementor-widgets' ),
+				1  => __( 'Јануар', 'lkc-elementor-widgets' ),
+				2  => __( 'Фебруар', 'lkc-elementor-widgets' ),
+				3  => __( 'Март', 'lkc-elementor-widgets' ),
+				4  => __( 'Април', 'lkc-elementor-widgets' ),
+				5  => __( 'Мај', 'lkc-elementor-widgets' ),
+				6  => __( 'Јун', 'lkc-elementor-widgets' ),
+				7  => __( 'Јул', 'lkc-elementor-widgets' ),
+				8  => __( 'Август', 'lkc-elementor-widgets' ),
+				9  => __( 'Септембар', 'lkc-elementor-widgets' ),
+				10 => __( 'Октобар', 'lkc-elementor-widgets' ),
+				11 => __( 'Новембар', 'lkc-elementor-widgets' ),
+				12 => __( 'Децембар', 'lkc-elementor-widgets' ),
 			)[ $monthIndex ];
 	}
 
