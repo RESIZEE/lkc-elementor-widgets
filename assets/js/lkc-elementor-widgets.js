@@ -53,12 +53,5 @@ $jq(document).ready(function() {
         nextArrow: '<button type="button" class="slick-next"><i class="fa-solid fa-chevron-right"></i></button>',
 
     });
-
-    // Program links
-    $jq('.program-sticker').click(function(event) {
-        event.preventDefault();
-
-        document.location.href = $jq(this).data('program-link');
-    });
 });
 
