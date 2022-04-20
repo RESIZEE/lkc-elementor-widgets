@@ -193,7 +193,7 @@ class Hero_Slider_Widget extends Widget_Base {
 		echo '<div class="hero-slider-info__program" style="width: 120px">';
 		echo "<div class=\"program-sticker\">";
 		echo '<i class="fas fa-chevron-right"></i>';
-		echo "<span class=\"program-sticker__title\">NOVOSTI</span>";
+		echo '<span class="program-sticker__title">'.__('НОВОСТИ','resize').'</span>';
 		echo "<i class=\"fa-solid fa-newspaper\"></i>";
 		echo '</div>';
 		echo '</div>';
@@ -219,18 +219,19 @@ class Hero_Slider_Widget extends Widget_Base {
 			'post_type'   => 'event',
 			'post_status' => 'publish',
 
-			'meta_query' => array(
-				'order_by_date_clause' => array(
-					'key'     => 'date_of_event',
-					'compare' => 'EXISTS',
-					'type'    => 'DATE',
-				),
-				'order_by_time_clause' => array(
-					'key'     => 'time_of_event',
-					'compare' => 'EXISTS',
-					'type'    => 'TIME',
-				),
-			),
+            'meta_query'     => array(
+                'order_by_date_clause' => array(
+                    'key'     => 'date_of_event',
+                    'compare' => '>=',
+                    'value'   => date( 'Y-m-d' ),
+                    'type'    => 'DATE',
+                ),
+                'order_by_time_clause' => array(
+                    'key'     => 'time_of_event',
+                    'compare' => 'EXISTS',
+                    'type'    => 'TIME',
+                ),
+            ),
 			'orderby'    => array(
 				'order_by_date_clause' => 'ASC',
 				'order_by_time_clause' => 'ASC',
