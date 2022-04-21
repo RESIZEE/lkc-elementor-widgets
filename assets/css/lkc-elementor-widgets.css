@@ -243,22 +243,15 @@ img.card__image {
 
 @media only screen and (max-width: 353px) {
     .news-widget-container {
-        height: 520px !important;
-    }
-}
-
-@media only screen and (max-width: 767px) {
-    .news-widget-card:nth-child(5),
-    .news-widget-card:nth-child(8),
-    .news-widget-card:nth-child(11) {
-        border: none;
+        height: 540px !important;
     }
 }
 
 @media only screen and (max-width: 1023px) {
     .news-widget-card:nth-child(5),
     .news-widget-card:nth-child(8),
-    .news-widget-card:nth-child(11) {
+    .news-widget-card:nth-child(11),
+    .news-widget-card:nth-child(14) {
         border: none;
     }
 }
