@@ -606,6 +606,8 @@ img.card__image {
  */
 .hero-slider-container {
     position: relative;
+    height: 500px;
+    overflow: hidden;
 }
 
 .hero-slider-controls {
@@ -708,6 +710,9 @@ img.card__image {
 }
 
 @media screen and (max-width: 992px) {
+    .hero-slider-container {
+        height: 900px;
+    }
     .hero-slider-info__date-time {
         top: 80%;
     }
