@@ -231,6 +231,7 @@ class Teams_Widget extends Widget_Base {
 				$team['full_name'],
 				$team['job_title'],
 				$team['email'],
+				$team['slug'],
 				$team['image']
 			);
 		}
@@ -247,14 +248,14 @@ class Teams_Widget extends Widget_Base {
 	 * @param string $full_name
 	 * @param string $job_title
 	 * @param string $email
+	 * @param string $slug
 	 * @param string $image
 	 *
 	 * @return void
 	 */
-	private function card_html( string $full_name, string $job_title, string $email, string $image ) {
-		$full_name_slug = sanitize_title( $full_name );
+	private function card_html( string $full_name, string $job_title, string $email, string $slug, string $image ) {
 
-		echo "<div id=\"$full_name_slug\" class=\"col-sm-6 col-xl-3\">";
+		echo "<div id=\"$slug\" class=\"col-sm-6 col-xl-3\">";
 		echo '<div class="teams-widget-card">';
 		echo "<img src=\"$image\" alt=\"Image of $full_name\" class=\"teams-widget-card__image\">";
 		echo "<h2 class=\teams-widget-card__full_name\">$full_name</h2>";
@@ -286,6 +287,7 @@ class Teams_Widget extends Widget_Base {
 				'full_name' => $post->post_title,
 				'job_title' => $post->job_title,
 				'email'     => $post->email,
+				'slug'     => $post->slug,
 				'image'     => wp_get_attachment_image_url( $photo_id, 'medium' ) ?: plugins_url( '/assets/img/teams_placeholder.png', LKC_PLUGIN_FILE ),
 			];
 		}
