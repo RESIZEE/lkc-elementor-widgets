@@ -162,7 +162,7 @@ img.card__image {
     News Widget Style
  */
 .news-widget-container {
-    height: 450px;
+    height: 480px !important;
 }
 
 .news-widget-card:nth-child(5),
