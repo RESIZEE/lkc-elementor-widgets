@@ -161,9 +161,13 @@ img.card__image {
 /*
     News Widget Style
  */
+.news-widget {
+    overflow: hidden;
+}
+
 .news-widget-container {
     height: 480px !important;
-    overflow: hidden;
+    
 }
 
 .news-widget-card:nth-child(5),
