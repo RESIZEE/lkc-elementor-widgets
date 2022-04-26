@@ -163,6 +163,7 @@ img.card__image {
  */
 .news-widget-container {
     height: 480px !important;
+    overflow: hidden;
 }
 
 .news-widget-card:nth-child(5),
