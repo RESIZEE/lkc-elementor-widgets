@@ -198,6 +198,10 @@ img.card__image {
     height: 70px;
 }
 
+.news-widget__title:hover {
+    color: #015eab !important;
+}
+
 .news-widget-description-container {
     padding: 0 20px;
     font-size: 14px;

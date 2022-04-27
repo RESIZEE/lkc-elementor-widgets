@@ -227,7 +227,7 @@ class News_Widget extends Widget_Base {
 	private function card_html( string $photo, string $news_excerpt, string $news_title, string $news_permalink ) {
 		echo '<div class="news-widget-card">';
 		echo "<a href=\"$news_permalink\"><img src=\"$photo\" class=\"news-widget__image\"></a>";
-		echo '<p class="news-widget__title">' . wp_trim_words( $news_title, 4) . '</p>';
+		echo '<a href="' . $news_permalink . '" class="news-widget__title-link"><p class="news-widget__title">' . wp_trim_words( $news_title, 4) . '</p></a>';
 		echo "<div class=\"news-widget-description-container\">";
 		echo '<p class="news-widget__excerpt">' . wp_trim_words( $news_excerpt, 20 ) . '</p>';
 		echo '<a href="' . $news_permalink . '" class="news-widget__read_more">' . __('ПРОЧИТАЈ ВИШЕ', 'resize') . ' <i class="fa-solid fa-arrow-right-long"></i></a>';
