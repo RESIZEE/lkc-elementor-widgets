@@ -350,7 +350,8 @@ class Card_Preview_Widgets extends Widget_Base {
 				'type'      => Controls_Manager::COLOR,
 				'default'   => '#fff',
 				'selectors' => [
-					'{{WRAPPER}} .card-preview-card:hover .card-preview-card__title, .card-preview-card__title:hover' => 'color: {{VALUE}} !important',
+					'{{WRAPPER}} .card-preview-card:hover .card-preview-card__title'              => 'color: {{VALUE}} !important',
+					'{{WRAPPER}} .card-preview-card__title-link:hover p.card-preview-card__title' => 'color: {{VALUE}} !important',
 				],
 			)
 		);
@@ -407,7 +408,7 @@ class Card_Preview_Widgets extends Widget_Base {
 		echo "<img src=\"$play_button_img_url\" class=\"card-preview-card__play_img_overlay\" alt=\"Play button\"/>";
 		echo '</a>';
 
-		echo "<a href=\"$video_url\" target=\"_blank\">";
+		echo "<a href=\"$video_url\" target=\"_blank\" class=\"card-preview-card__title-link\">";
 		echo "<p class=\"card-preview-card__title\">$card_title</p>";
 		echo '</a>';
 

@@ -73,9 +73,9 @@ img.card__image {
 
 .cinema-movies-showcase-card:hover .cinema-movies-showcase-card__title, .cinema-movies-showcase-card:hover .cinema-movies-showcase-card__overlay {
     opacity: 1;
-    -webkit-transition: all 0.45s ease-in-out 0s;
-    -moz-transition: all 0.45s ease-in-out 0s;
-    transition: all 0.45s ease-in-out 0s;
+    -webkit-transition: all 0.25s ease-in-out 0s;
+    -moz-transition: all 0.25s ease-in-out 0s;
+    transition: all 0.25s ease-in-out 0s;
 }
 
 .cinema-movies-showcase-card__title {
@@ -167,7 +167,7 @@ img.card__image {
 
 .news-widget-container {
     height: 480px !important;
-    
+
 }
 
 .news-widget-card:nth-child(5),
@@ -720,6 +720,7 @@ img.card__image {
     .hero-slider-container {
         height: 900px;
     }
+
     .hero-slider-info__date-time {
         top: 80%;
     }
