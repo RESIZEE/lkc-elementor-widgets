@@ -253,8 +253,8 @@ class Teams_Widget extends Widget_Base {
 	 *
 	 * @return void
 	 */
-	private function card_html( string $full_name, string $job_title, string $email, string $slug, string $image ) {
 
+	private function card_html( string $full_name, string $job_title, string $email, string $slug, string $image ) {
 		echo "<div id=\"$slug\" class=\"col-sm-6 col-xl-3\">";
 		echo '<div class="teams-widget-card">';
 		echo "<img src=\"$image\" alt=\"Image of $full_name\" class=\"teams-widget-card__image\">";
@@ -278,6 +278,30 @@ class Teams_Widget extends Widget_Base {
 			'order'       => 'ASC',
 		);
 
+		$replace = array(
+			"А" => "A", "Б" => "B", "В" => "V", "Г" => "G",
+			"Д" => "D", "Ђ" => "Dj", "Е" => "E", "Ж" => "Z",
+			"З" => "Z", "И" => "I", "Ј" => "J", "К" => "K",
+			"Л" => "L", "Љ" => "LJ","М" => "M", "Н" => "N",
+			"Њ" => "NJ","О" => "O", "П" => "P", "Р" => "R",
+			"С" => "S", "Т" => "T", "Ћ" => "C",
+			"У" => "U", "Ф" => "F", "Х" => "H", "Ц" => "C",
+			"Ч" => "C", "Џ" => "DZ","Ш" => "S", "а" => "a",
+			"б" => "b", "в" => "v", "г" => "g", "д" => "d",
+			"ђ" => "đ", "е" => "e", "ж" => "z", "з" => "z",
+			"и" => "i", "ј" => "j", "к" => "k", "л" => "l",
+			"љ" => "lj","м" => "m", "н" => "n", "њ" => "nj",
+			"о" => "o", "п" => "p", "р" => "r", "с" => "s",
+			"т" => "t", "ћ" => "c", "у" => "u",
+			"ф" => "f", "х" => "h", "ц" => "c", "ч" => "c",
+			"џ" => "dz", "ш" => "s",
+			"Ња" => "Nja", "Ње" => "Nje", "Њи" => "Nji",
+			"Њо" => "Njo", "Њу" => "Nju", "Ља" => "Lja",
+			"Ље" => "Lje", "Љи" => "Lji", "Љо" => "Ljo",
+			"Љу" => "Lju", "Џа" => "Dza", "Џе" => "Dze",
+			"Џи" => "Dzi", "Џо" => "Dzo", "Џу" => "Dzu",
+		);
+
 		$teams = [];
 
 		foreach ( get_posts( $args ) as $post ) {
@@ -287,7 +311,7 @@ class Teams_Widget extends Widget_Base {
 				'full_name' => $post->post_title,
 				'job_title' => $post->job_title,
 				'email'     => $post->email,
-				'slug'     => $post->post_name,
+				'slug'     =>  sanitize_title(strtr($post->post_title, $replace)),
 				'image'     => wp_get_attachment_image_url( $photo_id, 'medium' ) ?: plugins_url( '/assets/img/teams_placeholder.png', LKC_PLUGIN_FILE ),
 			];
 		}
