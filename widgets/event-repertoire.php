@@ -104,6 +104,36 @@ class Event_Repertoire_Widget extends Widget_Base {
 
 		echo '<div class="event-repertoire-container">';
 		echo ' <div class="event-repertoire-wrapper">';
+
+		if ( empty( $events ) ) {
+			$this->placeholder_text();
+		} else {
+			$this->event_cards( $events );
+		}
+
+		echo '</div>';
+		echo '</div>';
+	}
+
+	/**
+	 * Echos placeholder text.
+	 *
+	 * @return void
+	 */
+	private function placeholder_text(): void {
+		echo '<p class="event-repertoire-placeholder-text">';
+		echo __( 'Тренутно нема предстојећих догађаја.', 'lkc-elementor-widgets' );
+		echo '</p>';
+	}
+
+	/**
+	 * Echos HTML for event cards.
+	 *
+	 * @param array $events
+	 *
+	 * @return void
+	 */
+	private function event_cards( array $events ): void {
 		foreach ( $events as $event ):
 			echo "<a href=\"$event->permalink\" class=\"event-repertoire-card event-border--{$event->program->slug}\">";
 			echo "<img src=\"$event->img_url\" alt=\"Image of $event->name event\" class=\"card__image\">";
@@ -115,8 +145,6 @@ class Event_Repertoire_Widget extends Widget_Base {
 			$event->name_and_location();
 			echo '</a>';
 		endforeach;
-		echo '</div>';
-		echo '</div>';
 	}
 
 	/**
