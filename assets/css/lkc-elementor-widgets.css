@@ -167,7 +167,7 @@ img.card__image {
 
 .news-widget-container {
     height: 480px !important;
-
+    overflow: hidden;
 }
 
 .news-widget-card:nth-child(5),
@@ -205,6 +205,8 @@ img.card__image {
 .news-widget-description-container {
     padding: 0 20px;
     font-size: 14px;
+    overflow: hidden;
+    margin-bottom: 480px;
 }
 
 .news-widget__excerpt {
