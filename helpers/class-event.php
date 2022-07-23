@@ -9,7 +9,7 @@ class Event {
 	public string $img_url;
 	public string $name;
 	public string $permalink;
-	public string $location;
+	public ?string $location;
 	public string $excerpt;
 	public string $day;
 	private string $month;
